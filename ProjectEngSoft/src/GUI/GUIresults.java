@@ -1,43 +1,20 @@
 package GUI;
 
-import java.awt.EventQueue;
+import javax.swing.JPanel;
+import javax.swing.JLabel;
 
-import javax.swing.JFrame;
-
-public class GUIresults {
-
-	private JFrame frame;
+public class GUIresults extends JPanel {
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					GUIresults window = new GUIresults();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the application.
+	 * Create the panel.
 	 */
 	public GUIresults() {
-		initialize();
-	}
+		setLayout(null);
+		
+		JLabel lblPopjiogy = new JLabel("popjiogy");
+		
+		lblPopjiogy.setBounds(85, 185, 49, 14);
+		add(lblPopjiogy);
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
-
 }
