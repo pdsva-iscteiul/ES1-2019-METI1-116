@@ -82,6 +82,21 @@ public class GUImenu {
 		lblMenu.setBounds(40, 28, 615, 127);
 		frame.getContentPane().add(lblMenu);
 		
+		JButton btnNewButton_1 = new JButton("Open excel file");
+		btnNewButton_1.setFont(new Font("Dubai", Font.PLAIN, 20));
+		btnNewButton_1.setBounds(119, 461, 224, 51);
+		frame.getContentPane().add(btnNewButton_1);
+		
+		JButton btnNewButton_2 = new JButton("Open excel in GUI");
+		btnNewButton_2.setFont(new Font("Dubai", Font.PLAIN, 20));
+		btnNewButton_2.setBounds(362, 461, 211, 51);
+		frame.getContentPane().add(btnNewButton_2);
+		
+		
+	}
+
+	public void newWindow() {
+		// TODO Auto-generated method stub
 		
 	}
 }

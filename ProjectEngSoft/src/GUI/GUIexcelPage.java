@@ -16,12 +16,12 @@ import java.awt.Component;
 import javax.swing.Box;
 import java.awt.Dimension;
 import javax.swing.JTable;
+import java.awt.Font;
 
 public class GUIexcelPage {
 
 	private JFrame frame;
 	private JTextField textField;
-	private JTable table;
 
 	/**
 	 * Launch the application.
@@ -51,20 +51,25 @@ public class GUIexcelPage {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 495, 345);
+		frame.setBounds(100, 100, 459, 282);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
-		JButton btnNewButton = new JButton("Send");
+		JButton btnNewButton = new JButton("Load");
+		btnNewButton.setFont(new Font("Dubai", Font.BOLD, 12));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("true");
+			//	frame.dispose();
+			//GUImenu menu = new GUImenu();
+			//menu.newWindow();
 			}
 		});
-		btnNewButton.setBounds(343, 272, 109, 23);
+		btnNewButton.setBounds(175, 201, 109, 23);
 		frame.getContentPane().add(btnNewButton);
 
-		JButton btnNewButton_1 = new JButton("Search");
+		JButton btnNewButton_1 = new JButton("Search file");
+		btnNewButton_1.setFont(new Font("Dubai", Font.BOLD, 12));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFileChooser chooser = new JFileChooser();
@@ -80,42 +85,26 @@ public class GUIexcelPage {
 		});
 
 		textField = new JTextField();
-		textField.setBounds(132, 58, 320, 20);
+		textField.setBounds(83, 138, 320, 20);
 		frame.getContentPane().add(textField);
 		textField.setColumns(20);
 
-		btnNewButton_1.setBounds(30, 57, 92, 23);
+		btnNewButton_1.setBounds(175, 72, 109, 23);
 		frame.getContentPane().add(btnNewButton_1);
 
 		JLabel lblNewLabel = new JLabel("Path of the file:");
-		lblNewLabel.setBounds(132, 33, 122, 14);
+		lblNewLabel.setFont(new Font("Dubai", Font.BOLD, 12));
+		lblNewLabel.setBounds(83, 123, 122, 14);
 		frame.getContentPane().add(lblNewLabel);
-
-		JProgressBar progressBar = new JProgressBar();
-		progressBar.setBounds(30, 247, 422, 14);
-		frame.getContentPane().add(progressBar);
-
-		JLabel lblPmd = new JLabel("PMD:");
-		lblPmd.setBounds(46, 148, 61, 14);
-		frame.getContentPane().add(lblPmd);
-
-		JLabel lblPlasma = new JLabel("iPlasma:");
-		lblPlasma.setBounds(46, 173, 61, 14);
-		frame.getContentPane().add(lblPlasma);
 
 		JLayeredPane layeredPane = new JLayeredPane();
 		layeredPane.setBounds(208, 215, 174, -67);
 		frame.getContentPane().add(layeredPane);
-
-		table = new JTable();
-		table.setColumnSelectionAllowed(true);
-		table.setBounds(31, 104, 422, 90);
-		frame.getContentPane().add(table);
-
-		Component rigidArea = Box.createRigidArea(new Dimension(20, 20));
-		rigidArea.setBounds(30, 133, 422, 62);
-		frame.getContentPane().add(rigidArea);
+		
+		JLabel lblFirst = new JLabel("First,choose your excel file.");
+		lblFirst.setFont(new Font("Dubai", Font.BOLD, 14));
+		lblFirst.setBounds(142, 21, 174, 14);
+		frame.getContentPane().add(lblFirst);
 		
 	}
-
 }
