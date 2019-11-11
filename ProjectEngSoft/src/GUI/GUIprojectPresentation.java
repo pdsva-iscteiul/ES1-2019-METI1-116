@@ -94,8 +94,7 @@ public class GUIprojectPresentation {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			//abre outra window
-				JPanel j = new JPanel();
-				j.setBackground(new Color(0, 0, 0));
+				JPanel j = new GUIresults();
 				j.setBounds(0, 0, 586, 424);
 				frame.getContentPane().add(j);
 				panel.setLayout(null);
