@@ -2,7 +2,15 @@ package GUI;
 
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Color;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JButton;
+import javax.swing.DefaultComboBoxModel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class GUIresults extends JPanel {
 
@@ -10,13 +18,41 @@ public class GUIresults extends JPanel {
 	 * Create the panel.
 	 */
 	public GUIresults() {
-		setBackground(Color.CYAN);
+		setBackground(Color.LIGHT_GRAY);
 		setLayout(null);
 		
-		JLabel lblPopjiogy = new JLabel("popjiogy");
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBounds(38, 136, 111, 20);
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"PMD", "IPlasma"})); //TODO add the user rule to the list when it is created
+		add(comboBox);
 		
-		lblPopjiogy.setBounds(85, 185, 49, 14);
-		add(lblPopjiogy);
+		JButton btnStartFindingErros = new JButton("Start finding erros");
+		btnStartFindingErros.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				String selectedRule = (String) comboBox.getSelectedItem();
+				
+				int n = 1; //TODO n = number of errors found, i set it to 1 just for testing 
+				
+				String[] options = {"Ok!", "Show me the erro list"};
+				int result = JOptionPane.showOptionDialog(null, "with the rule "+ selectedRule +"were found" + n + " errors!", "Results",
+						JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+				if (result == 0 ) {
+				// TODO probably nothing 
+				}
+				if (result == 1 ) {
+				//TODO open the excel file
+				}
+				
+			}
+		});
+		btnStartFindingErros.setBounds(250, 135, 149, 23);
+		add(btnStartFindingErros);
 
+	}
+	public static void main(String[] args) {
+		JFrame f = new JFrame();
+		f.add(new GUIresults());
+		f.setVisible(true);
 	}
 }
