@@ -1,6 +1,7 @@
 package GUI;
 
 import javax.swing.JPanel;
+import javax.swing.JProgressBar;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
@@ -13,11 +14,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class GUIresults extends JPanel {
-
+	private JFrame f; 
 	/**
 	 * Create the panel.
 	 */
-	public GUIresults() {
+	public GUIresults(JFrame f1) {
+		this.f = f1;
 		setBackground(Color.LIGHT_GRAY);
 		setLayout(null);
 		
@@ -50,9 +52,14 @@ public class GUIresults extends JPanel {
 		add(btnStartFindingErros);
 
 	}
-	public static void main(String[] args) {
-		JFrame f = new JFrame();
-		f.add(new GUIresults());
-		f.setVisible(true);
+	public void swap () {
+		JPanel j = new GUIexcel();
+		
+		f.getContentPane().add(j);
+		f.getContentPane().remove();
+		f.getContentPane().repaint();
+		f.getContentPane().revalidate();
+		
+						
 	}
 }

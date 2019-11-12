@@ -60,7 +60,7 @@ public class GUIprojectPresentation {
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(240, 248, 255));
-		panel.setBounds(0, 0, 586, 424);
+		panel.setBounds(0, 0, 586, 463);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 		
@@ -94,11 +94,10 @@ public class GUIprojectPresentation {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			//abre outra window
-				JPanel j = new GUIresults();
-				j.setBounds(0, 0, 586, 424);
+				JPanel j = new GUIresults(frame);
+				j.setBounds(0, 0, 586, 463);
 				frame.getContentPane().add(j);
 				panel.setLayout(null);
-
 				frame.getContentPane().remove(panel);
 				frame.getContentPane().repaint();
 				frame.getContentPane().revalidate();
