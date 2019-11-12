@@ -14,11 +14,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class GUIresults extends JPanel {
-	private JFrame f; 
+	private GUIprojectPresentation f; 
 	/**
 	 * Create the panel.
 	 */
-	public GUIresults(JFrame f1) {
+	public GUIresults(GUIprojectPresentation f1) {
 		this.f = f1;
 		setBackground(Color.LIGHT_GRAY);
 		setLayout(null);
@@ -37,13 +37,14 @@ public class GUIresults extends JPanel {
 				int n = 1; //TODO n = number of errors found, i set it to 1 just for testing 
 				
 				String[] options = {"Ok!", "Show me the erro list"};
-				int result = JOptionPane.showOptionDialog(null, "with the rule "+ selectedRule +"were found" + n + " errors!", "Results",
+				int result = JOptionPane.showOptionDialog(null, "with the rule "+ selectedRule +" were found " + n + " errors!", "Results",
 						JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
 				if (result == 0 ) {
 				// TODO probably nothing 
 				}
 				if (result == 1 ) {
 				//TODO open the excel file
+					f.swapToexcel();
 				}
 				
 			}
@@ -52,14 +53,5 @@ public class GUIresults extends JPanel {
 		add(btnStartFindingErros);
 
 	}
-	public void swap () {
-		JPanel j = new GUIexcel();
-		
-		f.getContentPane().add(j);
-		f.getContentPane().remove();
-		f.getContentPane().repaint();
-		f.getContentPane().revalidate();
-		
-						
-	}
+	
 }

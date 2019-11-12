@@ -16,7 +16,7 @@ import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
 
-public class GUIprojectPresentation {
+public class GUIprojectPresentation extends JFrame{
 
 	private JFrame frame;
 
@@ -93,17 +93,28 @@ public class GUIprojectPresentation {
 		
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			//abre outra window
-				JPanel j = new GUIresults(frame);
-				j.setBounds(0, 0, 586, 463);
-				frame.getContentPane().add(j);
-				panel.setLayout(null);
-				frame.getContentPane().remove(panel);
-				frame.getContentPane().repaint();
-				frame.getContentPane().revalidate();
+				swap();
 				
 								
 			}
 		});
+	}
+	public void swap() {
+		JPanel j = new GUIresults(this);
+		j.setBounds(0, 0, 586, 463);
+		frame.getContentPane().removeAll();
+		frame.getContentPane().add(j);
+		frame.getContentPane().repaint();
+		frame.getContentPane().revalidate();
+
+	}
+	public void swapToexcel() {
+		JPanel j = new GUIexcel();
+		j.setBounds(0, 0, 586, 463);
+		frame.getContentPane().removeAll();
+		frame.getContentPane().add(j);
+		frame.getContentPane().repaint();
+		frame.getContentPane().revalidate();
+
 	}
 }

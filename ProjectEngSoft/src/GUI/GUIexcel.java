@@ -28,8 +28,8 @@ public class GUIexcel extends JPanel {
 			//GUImenu menu = new GUImenu();
 			//menu.newWindow();
 				
-				GUIresults g = new GUIresults();
-				g.show();
+				//GUIresults g = new GUIresults();
+				//g.show();
 			}
 		});
 		setLayout(null);
