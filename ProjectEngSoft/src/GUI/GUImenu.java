@@ -20,8 +20,9 @@ public class GUImenu extends JPanel {
 	 */
 	public GUImenu(GUIprojectPresentation frame) {
 		this.frame = frame;
+		setBounds(100, 100, 600, 500);
 		JButton btnMakeNewRule = new JButton("Make new rule");
-		btnMakeNewRule.setBounds(121, 98, 193, 55);
+		btnMakeNewRule.setBounds(196, 127, 193, 55);
 		btnMakeNewRule.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
@@ -31,24 +32,24 @@ public class GUImenu extends JPanel {
 		add(btnMakeNewRule);
 
 		JLabel label = new JLabel("MENU");
-		label.setBounds(141, 11, 157, 96);
+		label.setBounds(219, 33, 157, 96);
 		label.setHorizontalAlignment(SwingConstants.CENTER);
 		label.setForeground(Color.BLACK);
 		label.setFont(new Font("Dubai", Font.BOLD, 56));
 		add(label);
 
 		JButton button_3 = new JButton("Open excel file");
-		button_3.setBounds(121, 210, 193, 43);
+		button_3.setBounds(196, 259, 193, 55);
 		button_3.setFont(new Font("Dubai", Font.PLAIN, 20));
 		add(button_3);
 
 		JButton button_4 = new JButton("Open excel in GUI");
-		button_4.setBounds(121, 155, 193, 55);
+		button_4.setBounds(196, 193, 193, 55);
 		button_4.setFont(new Font("Dubai", Font.PLAIN, 20));
 		add(button_4);
 
 		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(110, 264, 88, 20);
+		comboBox.setBounds(132, 340, 88, 20);
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"PMD", "IPlasma"})); //TODO add the user rule to the list when it is created
 		add(comboBox);
 
@@ -61,7 +62,7 @@ public class GUImenu extends JPanel {
 				int n = 1; //TODO n = number of errors found, i set it to 1 just for testing 
 
 				String[] options = {"Ok!", "Show me the erro list"};
-				int result = JOptionPane.showOptionDialog(null, "with the rule "+ selectedRule +" were found " + n + " errors!", "Results",
+				int result = JOptionPane.showOptionDialog(null, "With the rule "+ selectedRule +" were found " + n + " errors!", "Results",
 						JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
 				if (result == 0 ) {
 					// TODO probably nothing 
@@ -72,7 +73,7 @@ public class GUImenu extends JPanel {
 
 			}
 		});
-		button.setBounds(218, 264, 139, 23);
+		button.setBounds(336, 339, 139, 23);
 		add(button);
 
 	}
