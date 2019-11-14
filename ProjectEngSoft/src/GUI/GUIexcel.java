@@ -18,8 +18,9 @@ public class GUIexcel extends JPanel {
 	 * Create the panel.
 	 */
 	public GUIexcel() {
+		setBounds(100, 100, 600, 500);
 		JButton btnNewButton = new JButton("Load");
-		btnNewButton.setBounds(187, 210, 57, 29);
+		btnNewButton.setBounds(374, 401, 164, 61);
 		btnNewButton.setFont(new Font("Dubai", Font.BOLD, 12));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -36,7 +37,7 @@ public class GUIexcel extends JPanel {
 		add(btnNewButton);
 
 		JButton btnNewButton_1 = new JButton("Search file");
-		btnNewButton_1.setBounds(271, 88, 87, 29);
+		btnNewButton_1.setBounds(419, 88, 87, 29);
 		btnNewButton_1.setFont(new Font("Dubai", Font.BOLD, 12));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -53,7 +54,7 @@ public class GUIexcel extends JPanel {
 		});
 
 		textField = new JTextField();
-		textField.setBounds(73, 92, 186, 20);
+		textField.setBounds(73, 92, 294, 20);
 		add(textField);
 		textField.setColumns(20);
 		add(btnNewButton_1);
@@ -71,7 +72,11 @@ public class GUIexcel extends JPanel {
 		lblFirst.setBounds(98, 31, 171, 24);
 		lblFirst.setFont(new Font("Dubai", Font.BOLD, 14));
 	add(lblFirst);
+	
+	JButton btnOpenExcelPage = new JButton("Open Excel Page");
+	btnOpenExcelPage.setFont(new Font("Dubai", Font.BOLD, 12));
+	btnOpenExcelPage.setBounds(73, 401, 164, 61);
+	add(btnOpenExcelPage);
 		
 	}
-
 }
