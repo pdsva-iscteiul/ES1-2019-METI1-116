@@ -44,7 +44,7 @@ public class GUIresults extends JPanel {
 				}
 				if (result == 1 ) {
 				//TODO open the excel file
-					f.swapToexcel();
+				//	f.swapToexcel();
 				}
 				
 			}
