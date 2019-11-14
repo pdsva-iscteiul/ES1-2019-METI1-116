@@ -101,6 +101,7 @@ public class GUIprojectPresentation extends JFrame{
 	}
 	public void swap() {
 		JPanel j = new GUImenu(this);
+		//JPanel j = new GUIexcel(this);
 		j.setBounds(0, 0, 586, 463);
 		frame.getContentPane().removeAll();
 		frame.getContentPane().add(j);
@@ -108,13 +109,22 @@ public class GUIprojectPresentation extends JFrame{
 		frame.getContentPane().revalidate();
 
 	}
-	public void swapToexcel() {
-		JPanel j = new GUIexcel();
+//	public void swapToexcel() {
+//		JPanel j = new GUIexcel();
+//		j.setBounds(0, 0, 586, 463);
+//		frame.getContentPane().removeAll();
+//		frame.getContentPane().add(j);
+//		frame.getContentPane().repaint();
+//		frame.getContentPane().revalidate();
+//
+//	}
+	public void swapToMenu() {
+		JPanel j = new GUImenu(this);
 		j.setBounds(0, 0, 586, 463);
 		frame.getContentPane().removeAll();
 		frame.getContentPane().add(j);
 		frame.getContentPane().repaint();
 		frame.getContentPane().revalidate();
-
-	}
+	
+}
 }
