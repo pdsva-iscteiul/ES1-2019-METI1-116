@@ -1,74 +1,43 @@
 package GUI;
-import java.awt.EventQueue;
 
-import javax.swing.JFrame;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JProgressBar;
-import javax.swing.JTextField;
-import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
-import java.awt.Component;
-import javax.swing.Box;
-import java.awt.Dimension;
-import javax.swing.JTable;
-import java.awt.Font;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
-public class GUIexcelPage {
-
-	private JFrame frame;
+public class GUIexcelPage extends JPanel {
 	private JTextField textField;
-
 	/**
-	 * Launch the application.
-	 */
-	public static void newWindow() {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					GUIexcelPage window = new GUIexcelPage();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the application.
+	 * Create the panel.
 	 */
 	public GUIexcelPage() {
-		initialize();
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 459, 282);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
-
+		setBounds(100, 100, 600, 500);
 		JButton btnNewButton = new JButton("Load");
+		btnNewButton.setBounds(374, 401, 164, 61);
 		btnNewButton.setFont(new Font("Dubai", Font.BOLD, 12));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("true");
+				//System.out.println("true");
 			//	frame.dispose();
 			//GUImenu menu = new GUImenu();
 			//menu.newWindow();
+				
+				//GUIresults g = new GUIresults();
+				//g.show();
 			}
 		});
-		btnNewButton.setBounds(175, 201, 109, 23);
-		frame.getContentPane().add(btnNewButton);
+		setLayout(null);
+		add(btnNewButton);
 
 		JButton btnNewButton_1 = new JButton("Search file");
+		btnNewButton_1.setBounds(419, 88, 87, 29);
 		btnNewButton_1.setFont(new Font("Dubai", Font.BOLD, 12));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -85,26 +54,29 @@ public class GUIexcelPage {
 		});
 
 		textField = new JTextField();
-		textField.setBounds(83, 138, 320, 20);
-		frame.getContentPane().add(textField);
+		textField.setBounds(73, 92, 294, 20);
+		add(textField);
 		textField.setColumns(20);
-
-		btnNewButton_1.setBounds(175, 72, 109, 23);
-		frame.getContentPane().add(btnNewButton_1);
+		add(btnNewButton_1);
 
 		JLabel lblNewLabel = new JLabel("Path of the file:");
+		lblNewLabel.setBounds(72, 66, 79, 21);
 		lblNewLabel.setFont(new Font("Dubai", Font.BOLD, 12));
-		lblNewLabel.setBounds(83, 123, 122, 14);
-		frame.getContentPane().add(lblNewLabel);
+		add(lblNewLabel);
 
 		JLayeredPane layeredPane = new JLayeredPane();
-		layeredPane.setBounds(208, 215, 174, -67);
-		frame.getContentPane().add(layeredPane);
+		layeredPane.setBounds(439, 19, 1, 1);
+	add(layeredPane);
 		
 		JLabel lblFirst = new JLabel("First,choose your excel file.");
+		lblFirst.setBounds(98, 31, 171, 24);
 		lblFirst.setFont(new Font("Dubai", Font.BOLD, 14));
-		lblFirst.setBounds(142, 21, 174, 14);
-		frame.getContentPane().add(lblFirst);
+	add(lblFirst);
+	
+	JButton btnOpenExcelPage = new JButton("Open Excel Page");
+	btnOpenExcelPage.setFont(new Font("Dubai", Font.BOLD, 12));
+	btnOpenExcelPage.setBounds(73, 401, 164, 61);
+	add(btnOpenExcelPage);
 		
 	}
 }
