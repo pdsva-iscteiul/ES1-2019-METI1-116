@@ -100,7 +100,7 @@ public class GUIprojectPresentation extends JFrame{
 		});
 	}
 	public void swap() {
-		JPanel j = new GUIresults(this);
+		JPanel j = new GUImenu(this);
 		j.setBounds(0, 0, 586, 463);
 		frame.getContentPane().removeAll();
 		frame.getContentPane().add(j);

@@ -1,102 +1,79 @@
 package GUI;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import java.awt.Font;
-import javax.swing.SwingConstants;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Color;
+import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JComboBox;
 
-public class GUImenu {
-
-	private JFrame frame;
-
+public class GUImenu extends JPanel {
+	private GUIprojectPresentation frame; 
 	/**
-	 * Launch the application.
+	 * Create the panel.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					GUImenu window = new GUImenu();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the application.
-	 */
-	public GUImenu() {
-		initialize();
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-		frame = new JFrame();
-		frame.getContentPane().setBackground(new Color(248, 248, 255));
-		frame.setBounds(100, 100, 705, 551);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
-		
-		JButton btnNewButton = new JButton("Rule maker");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				//GUImakeRule rule = new GUImakeRule();
-				//rule.newWindow();
-			}
-		});
-		btnNewButton.setFont(new Font("Dubai", Font.PLAIN, 27));
-		btnNewButton.setBounds(119, 166, 454, 89);
-		frame.getContentPane().add(btnNewButton);
-		
-		JButton btnEvaluateRule = new JButton("Evaluate Rule");
-		btnEvaluateRule.setFont(new Font("Dubai", Font.PLAIN, 27));
-		btnEvaluateRule.addActionListener(new ActionListener() {
+	public GUImenu(GUIprojectPresentation frame) {
+		this.frame = frame;
+		JButton btnMakeNewRule = new JButton("Make new rule");
+		btnMakeNewRule.setBounds(121, 98, 193, 55);
+		btnMakeNewRule.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				//GUIresults results = new GUIresults();
-				//results.newWindow();
 			}
 		});
-		btnEvaluateRule.setBounds(119, 266, 454, 89);
-		frame.getContentPane().add(btnEvaluateRule);
-		
-		JButton btnSeeRules = new JButton("See rules");
-		btnSeeRules.setFont(new Font("Dubai", Font.PLAIN, 27));
-		btnSeeRules.setBounds(119, 366, 454, 89);
-		frame.getContentPane().add(btnSeeRules);
-		
-		JLabel lblMenu = new JLabel("MENU");
-		lblMenu.setForeground(Color.BLACK);
-		lblMenu.setHorizontalAlignment(SwingConstants.CENTER);
-		lblMenu.setFont(new Font("Dubai", Font.BOLD, 56));
-		lblMenu.setBounds(40, 28, 615, 127);
-		frame.getContentPane().add(lblMenu);
-		
-		JButton btnNewButton_1 = new JButton("Open excel file");
-		btnNewButton_1.setFont(new Font("Dubai", Font.PLAIN, 20));
-		btnNewButton_1.setBounds(119, 461, 224, 51);
-		frame.getContentPane().add(btnNewButton_1);
-		
-		JButton btnNewButton_2 = new JButton("Open excel in GUI");
-		btnNewButton_2.setFont(new Font("Dubai", Font.PLAIN, 20));
-		btnNewButton_2.setBounds(362, 461, 211, 51);
-		frame.getContentPane().add(btnNewButton_2);
-		
-		
-	}
+		setLayout(null);
+		btnMakeNewRule.setFont(new Font("Dubai", Font.PLAIN, 27));
+		add(btnMakeNewRule);
 
-	public void newWindow() {
-		// TODO Auto-generated method stub
-		
+		JLabel label = new JLabel("MENU");
+		label.setBounds(141, 11, 157, 96);
+		label.setHorizontalAlignment(SwingConstants.CENTER);
+		label.setForeground(Color.BLACK);
+		label.setFont(new Font("Dubai", Font.BOLD, 56));
+		add(label);
+
+		JButton button_3 = new JButton("Open excel file");
+		button_3.setBounds(121, 210, 193, 43);
+		button_3.setFont(new Font("Dubai", Font.PLAIN, 20));
+		add(button_3);
+
+		JButton button_4 = new JButton("Open excel in GUI");
+		button_4.setBounds(121, 155, 193, 55);
+		button_4.setFont(new Font("Dubai", Font.PLAIN, 20));
+		add(button_4);
+
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBounds(110, 264, 88, 20);
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"PMD", "IPlasma"})); //TODO add the user rule to the list when it is created
+		add(comboBox);
+
+		JButton button = new JButton("Start finding erros");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				String selectedRule = (String) comboBox.getSelectedItem();
+
+				int n = 1; //TODO n = number of errors found, i set it to 1 just for testing 
+
+				String[] options = {"Ok!", "Show me the erro list"};
+				int result = JOptionPane.showOptionDialog(null, "with the rule "+ selectedRule +" were found " + n + " errors!", "Results",
+						JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+				if (result == 0 ) {
+					// TODO probably nothing 
+				}
+				if (result == 1 ) {
+					//TODO open the excel file
+				}
+
+			}
+		});
+		button.setBounds(218, 264, 139, 23);
+		add(button);
+
 	}
 }
