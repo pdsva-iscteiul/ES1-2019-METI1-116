@@ -25,6 +25,7 @@ public class GUImenu extends JPanel {
 		btnMakeNewRule.setBounds(196, 127, 193, 55);
 		btnMakeNewRule.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				frame.swapTomakeRule();
 			}
 		});
 		setLayout(null);
@@ -39,11 +40,21 @@ public class GUImenu extends JPanel {
 		add(label);
 
 		JButton btnShowResults = new JButton("Show results");
+		btnShowResults.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.swapToResults();
+			}
+		});
 		btnShowResults.setBounds(196, 286, 193, 55);
 		btnShowResults.setFont(new Font("Dubai", Font.PLAIN, 20));
 		add(btnShowResults);
 		
 		JButton btnChangeExcelFile = new JButton("Change excel file");
+		btnChangeExcelFile.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.swapToexcel();
+			}
+		});
 		btnChangeExcelFile.setFont(new Font("Dubai", Font.PLAIN, 20));
 		btnChangeExcelFile.setBounds(196, 207, 193, 55);
 		add(btnChangeExcelFile);

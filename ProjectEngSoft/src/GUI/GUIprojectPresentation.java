@@ -93,31 +93,22 @@ public class GUIprojectPresentation extends JFrame{
 		
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				swap();
+				swapToexcel();
 				
 								
 			}
 		});
+
 	}
-	public void swap() {
-		JPanel j = new GUImenu(this);
-		//JPanel j = new GUIexcel(this);
+	public void swapToexcel() {
+		JPanel j = new GUIexcelPage(this);
 		j.setBounds(0, 0, 586, 463);
 		frame.getContentPane().removeAll();
 		frame.getContentPane().add(j);
 		frame.getContentPane().repaint();
 		frame.getContentPane().revalidate();
-
 	}
-//	public void swapToexcel() {
-//		JPanel j = new GUIexcel();
-//		j.setBounds(0, 0, 586, 463);
-//		frame.getContentPane().removeAll();
-//		frame.getContentPane().add(j);
-//		frame.getContentPane().repaint();
-//		frame.getContentPane().revalidate();
-//
-//	}
+		
 	public void swapToMenu() {
 		JPanel j = new GUImenu(this);
 		j.setBounds(0, 0, 586, 463);
@@ -126,5 +117,22 @@ public class GUIprojectPresentation extends JFrame{
 		frame.getContentPane().repaint();
 		frame.getContentPane().revalidate();
 	
+	}
+	
+	public void swapTomakeRule() {
+		JPanel j = new GUImakeRule(this);
+		j.setBounds(0, 0, 586, 463);
+		frame.getContentPane().removeAll();
+		frame.getContentPane().add(j);
+		frame.getContentPane().repaint();
+		frame.getContentPane().revalidate();
+}
+	public void swapToResults() {
+		JPanel j = new GUIresults(this);
+		j.setBounds(0, 0, 586, 463);
+		frame.getContentPane().removeAll();
+		frame.getContentPane().add(j);
+		frame.getContentPane().repaint();
+		frame.getContentPane().revalidate();
 }
 }

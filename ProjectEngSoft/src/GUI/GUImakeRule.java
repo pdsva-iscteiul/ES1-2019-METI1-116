@@ -16,13 +16,14 @@ import java.awt.event.ActionEvent;
 public class GUImakeRule extends JPanel {
 	private JTextField textField_1;
 	private JTextField textField;
-
+	private GUIprojectPresentation frame;
 	/**
 	 * Create the panel.
 	 */
-	public GUImakeRule() {
-		setLayout(null);
+	public GUImakeRule(GUIprojectPresentation frame) {
+		this.frame= frame;
 		
+		setLayout(null);
 		JLabel lblMakeYourRule = new JLabel("Make your rule by fiiling the following fields according:");
 		lblMakeYourRule.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblMakeYourRule.setBounds(10, 23, 430, 66);
@@ -108,6 +109,7 @@ public class GUImakeRule extends JPanel {
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					dispose();
+					frame.swapToMenu();
 					//TODO dispose makerule
 				}
 			});

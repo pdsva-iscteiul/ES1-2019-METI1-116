@@ -14,23 +14,21 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class GUIexcelPage extends JPanel {
 	private JTextField textField;
+	private GUIprojectPresentation frame;
+	
 	/**
 	 * Create the panel.
 	 */
-	public GUIexcelPage() {
+	public GUIexcelPage( GUIprojectPresentation frame) {
+		this.frame = frame;
 		setBounds(100, 100, 600, 500);
 		JButton btnNewButton = new JButton("Load");
 		btnNewButton.setBounds(374, 401, 164, 61);
 		btnNewButton.setFont(new Font("Dubai", Font.BOLD, 12));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//System.out.println("true");
-			//	frame.dispose();
-			//GUImenu menu = new GUImenu();
-			//menu.newWindow();
-				
-				//GUIresults g = new GUIresults();
-				//g.show();
+				frame.swapToMenu();	
+			
 			}
 		});
 		setLayout(null);
