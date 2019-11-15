@@ -19,10 +19,11 @@ public class GUImenu extends JPanel {
 	 * Create the panel.
 	 */
 	public GUImenu(GUIprojectPresentation frame) {
+		setBackground(new Color(240, 248, 255));
 		this.frame = frame;
 		setBounds(100, 100, 600, 500);
 		JButton btnMakeNewRule = new JButton("Make a rule");
-		btnMakeNewRule.setBounds(196, 127, 193, 55);
+		btnMakeNewRule.setBounds(130, 146, 352, 67);
 		btnMakeNewRule.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				frame.swapTomakeRule();
@@ -33,7 +34,7 @@ public class GUImenu extends JPanel {
 		add(btnMakeNewRule);
 
 		JLabel label = new JLabel("MENU");
-		label.setBounds(219, 33, 157, 96);
+		label.setBounds(217, 26, 157, 96);
 		label.setHorizontalAlignment(SwingConstants.CENTER);
 		label.setForeground(Color.BLACK);
 		label.setFont(new Font("Dubai", Font.BOLD, 56));
@@ -45,8 +46,8 @@ public class GUImenu extends JPanel {
 				frame.swapToResults();
 			}
 		});
-		btnShowResults.setBounds(196, 286, 193, 55);
-		btnShowResults.setFont(new Font("Dubai", Font.PLAIN, 20));
+		btnShowResults.setBounds(130, 338, 352, 67);
+		btnShowResults.setFont(new Font("Dubai", Font.PLAIN, 27));
 		add(btnShowResults);
 		
 		JButton btnChangeExcelFile = new JButton("Change excel file");
@@ -55,8 +56,8 @@ public class GUImenu extends JPanel {
 				frame.swapToexcel();
 			}
 		});
-		btnChangeExcelFile.setFont(new Font("Dubai", Font.PLAIN, 20));
-		btnChangeExcelFile.setBounds(196, 207, 193, 55);
+		btnChangeExcelFile.setFont(new Font("Dubai", Font.PLAIN, 27));
+		btnChangeExcelFile.setBounds(130, 243, 352, 67);
 		add(btnChangeExcelFile);
 
 	}

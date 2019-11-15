@@ -14,6 +14,7 @@ import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
+import java.awt.SystemColor;
 
 
 public class GUIprojectPresentation extends JFrame{
@@ -59,7 +60,7 @@ public class GUIprojectPresentation extends JFrame{
 		frame.getContentPane().add(layeredPane);
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(new Color(240, 248, 255));
+		panel.setBackground(new Color(135, 206, 235));
 		panel.setBounds(0, 0, 586, 463);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
@@ -87,7 +88,7 @@ public class GUIprojectPresentation extends JFrame{
 		btnNewButton.setBounds(224, 350, 131, 65);
 		panel.add(btnNewButton);
 		btnNewButton.setForeground(new Color(105, 105, 105));
-		btnNewButton.setBackground(new Color(245, 245, 245));
+		btnNewButton.setBackground(new Color(230, 230, 250));
 		btnNewButton.setFont(new Font("Dubai", Font.BOLD, 20));
 		
 		

@@ -11,6 +11,8 @@ import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import java.awt.Color;
+import java.awt.SystemColor;
 
 public class GUIexcelPage extends JPanel {
 	private JTextField textField;
@@ -20,11 +22,13 @@ public class GUIexcelPage extends JPanel {
 	 * Create the panel.
 	 */
 	public GUIexcelPage( GUIprojectPresentation frame) {
+		setBackground(new Color(240, 248, 255));
 		this.frame = frame;
 		setBounds(100, 100, 600, 500);
-		JButton btnNewButton = new JButton("Load");
-		btnNewButton.setBounds(374, 401, 164, 61);
-		btnNewButton.setFont(new Font("Dubai", Font.BOLD, 12));
+		JButton btnNewButton = new JButton("Next");
+		btnNewButton.setBackground(SystemColor.control);
+		btnNewButton.setBounds(341, 339, 164, 61);
+		btnNewButton.setFont(new Font("Dubai", Font.BOLD, 18));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.swapToMenu();	
@@ -35,8 +39,9 @@ public class GUIexcelPage extends JPanel {
 		add(btnNewButton);
 
 		JButton btnNewButton_1 = new JButton("Search file");
-		btnNewButton_1.setBounds(419, 88, 87, 29);
-		btnNewButton_1.setFont(new Font("Dubai", Font.BOLD, 12));
+		btnNewButton_1.setBackground(new Color(248, 248, 255));
+		btnNewButton_1.setBounds(432, 179, 113, 61);
+		btnNewButton_1.setFont(new Font("Dubai", Font.BOLD, 18));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFileChooser chooser = new JFileChooser();
@@ -52,14 +57,14 @@ public class GUIexcelPage extends JPanel {
 		});
 
 		textField = new JTextField();
-		textField.setBounds(73, 92, 294, 20);
+		textField.setBounds(52, 179, 370, 61);
 		add(textField);
 		textField.setColumns(20);
 		add(btnNewButton_1);
 
 		JLabel lblNewLabel = new JLabel("Path of the file:");
-		lblNewLabel.setBounds(72, 66, 79, 21);
-		lblNewLabel.setFont(new Font("Dubai", Font.BOLD, 12));
+		lblNewLabel.setBounds(54, 135, 209, 21);
+		lblNewLabel.setFont(new Font("Dubai", Font.PLAIN, 22));
 		add(lblNewLabel);
 
 		JLayeredPane layeredPane = new JLayeredPane();
@@ -67,13 +72,14 @@ public class GUIexcelPage extends JPanel {
 	add(layeredPane);
 		
 		JLabel lblFirst = new JLabel("First,choose your excel file.");
-		lblFirst.setBounds(98, 31, 171, 24);
-		lblFirst.setFont(new Font("Dubai", Font.BOLD, 14));
+		lblFirst.setBounds(52, 43, 422, 52);
+		lblFirst.setFont(new Font("Dubai", Font.BOLD, 34));
 	add(lblFirst);
 	
 	JButton btnOpenExcelPage = new JButton("Open Excel Page");
-	btnOpenExcelPage.setFont(new Font("Dubai", Font.BOLD, 12));
-	btnOpenExcelPage.setBounds(73, 401, 164, 61);
+	btnOpenExcelPage.setBackground(SystemColor.control);
+	btnOpenExcelPage.setFont(new Font("Dubai", Font.BOLD, 18));
+	btnOpenExcelPage.setBounds(86, 339, 164, 61);
 	add(btnOpenExcelPage);
 		
 	}

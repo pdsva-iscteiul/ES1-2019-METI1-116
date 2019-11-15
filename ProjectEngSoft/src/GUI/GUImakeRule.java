@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 public class GUImakeRule extends JPanel {
 	private JTextField textField_1;
@@ -21,36 +22,42 @@ public class GUImakeRule extends JPanel {
 	 * Create the panel.
 	 */
 	public GUImakeRule(GUIprojectPresentation frame) {
+		setBackground(new Color(240, 248, 255));
 		this.frame= frame;
 		
 		setLayout(null);
 		JLabel lblMakeYourRule = new JLabel("Make your rule by fiiling the following fields according:");
-		lblMakeYourRule.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblMakeYourRule.setBounds(10, 23, 430, 66);
+		lblMakeYourRule.setFont(new Font("Dubai", Font.BOLD, 20));
+		lblMakeYourRule.setBounds(32, 26, 528, 66);
 		add(lblMakeYourRule);
 		
 		JLabel lblMetrics = new JLabel("Metrics:");
-		lblMetrics.setBounds(57, 111, 49, 14);
+		lblMetrics.setFont(new Font("Dubai", Font.PLAIN, 24));
+		lblMetrics.setBounds(57, 132, 86, 34);
 		add(lblMetrics);
 		
 		JLabel lblLimits = new JLabel("Limits:");
-		lblLimits.setBounds(57, 155, 49, 14);
+		lblLimits.setFont(new Font("Dubai", Font.PLAIN, 24));
+		lblLimits.setBounds(54, 195, 68, 34);
 		add(lblLimits);
 		
 		JLabel lblLogicalOperator = new JLabel("Logical operator:");
-		lblLogicalOperator.setBounds(42, 195, 107, 14);
+		lblLogicalOperator.setFont(new Font("Dubai", Font.PLAIN, 24));
+		lblLogicalOperator.setBounds(57, 258, 163, 34);
 		add(lblLogicalOperator);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(116, 152, 96, 20);
+		textField_1.setBounds(258, 200, 68, 29);
 		add(textField_1);
 		textField_1.setColumns(10);
 		
 		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(144, 191, 68, 22);
+		comboBox.setBounds(258, 258, 68, 31);
 		add(comboBox);
 		
 		JButton btnDone = new JButton("Save");
+		btnDone.setFont(new Font("Dubai", Font.BOLD, 18));
+		btnDone.setBackground(new Color(211, 211, 211));
 		btnDone.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Pop_up p = new Pop_up();
@@ -58,28 +65,31 @@ public class GUImakeRule extends JPanel {
 				p.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			}
 		});
-		btnDone.setBounds(328, 252, 89, 23);
+		btnDone.setBounds(377, 342, 96, 35);
 		add(btnDone);
 		
 		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setBounds(116, 108, 68, 22);
+		comboBox_1.setBounds(258, 135, 68, 31);
 		add(comboBox_1);
 		
 		textField = new JTextField();
-		textField.setBounds(33, 253, 285, 20);
+		textField.setBounds(57, 343, 289, 33);
 		add(textField);
 		textField.setColumns(10);
 		
 		JButton btnAdd = new JButton("Add");
-		btnAdd.setBounds(220, 107, 62, 23);
+		btnAdd.setFont(new Font("Dubai", Font.PLAIN, 14));
+		btnAdd.setBounds(362, 135, 62, 34);
 		add(btnAdd);
 		
 		JButton button = new JButton("Add");
-		button.setBounds(230, 151, 62, 23);
+		button.setFont(new Font("Dubai", Font.PLAIN, 14));
+		button.setBounds(362, 195, 62, 32);
 		add(button);
 		
 		JButton button_1 = new JButton("Add");
-		button_1.setBounds(240, 191, 62, 23);
+		button_1.setFont(new Font("Dubai", Font.PLAIN, 14));
+		button_1.setBounds(362, 258, 62, 32);
 		add(button_1);
 
 	}
