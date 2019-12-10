@@ -2,6 +2,7 @@ package ExcelReader;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
 
@@ -17,7 +18,6 @@ public class Reader {
 	private Workbook wb;
 	private Sheet sh;
 	private FileInputStream excelFile;
-
 
 	public Reader(File f) throws IOException {
 		excelFile = new FileInputStream(f);
@@ -59,5 +59,4 @@ public class Reader {
 		}
 		return aux;
 	}
-	
 }
