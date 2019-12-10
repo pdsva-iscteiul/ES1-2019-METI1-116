@@ -13,6 +13,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
+import javax.swing.DefaultComboBoxModel;
 
 public class GUImakeRule extends JPanel {
 	private JTextField textField_1;
@@ -52,6 +53,8 @@ public class GUImakeRule extends JPanel {
 		textField_1.setColumns(10);
 		
 		JComboBox comboBox = new JComboBox();
+		comboBox.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"=", ">", "<"}));
 		comboBox.setBounds(258, 258, 68, 31);
 		add(comboBox);
 		
@@ -69,6 +72,7 @@ public class GUImakeRule extends JPanel {
 		add(btnDone);
 		
 		JComboBox comboBox_1 = new JComboBox();
+		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"LOC", "CYCLO", "ATFD", "LAA"}));
 		comboBox_1.setBounds(258, 135, 68, 31);
 		add(comboBox_1);
 		
@@ -78,16 +82,34 @@ public class GUImakeRule extends JPanel {
 		textField.setColumns(10);
 		
 		JButton btnAdd = new JButton("Add");
+		btnAdd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String newText = textField.getText() + " " + comboBox_1.getItemAt(comboBox_1.getSelectedIndex());
+				textField.setText(newText);
+			}
+		});
 		btnAdd.setFont(new Font("Dubai", Font.PLAIN, 14));
 		btnAdd.setBounds(362, 135, 62, 34);
 		add(btnAdd);
 		
 		JButton button = new JButton("Add");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String newText = textField.getText() + " " + textField_1.getText();
+				textField.setText(newText);
+			}
+		});
 		button.setFont(new Font("Dubai", Font.PLAIN, 14));
 		button.setBounds(362, 195, 62, 32);
 		add(button);
 		
 		JButton button_1 = new JButton("Add");
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String newText = textField.getText() + " " + comboBox.getItemAt(comboBox.getSelectedIndex());
+				textField.setText(newText);
+			}
+		});
 		button_1.setFont(new Font("Dubai", Font.PLAIN, 14));
 		button_1.setBounds(362, 258, 62, 32);
 		add(button_1);
