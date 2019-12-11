@@ -48,7 +48,7 @@ public class Reader {
 		return aux;
 	}
 
-	public ArrayList<String> evaluate(Rule r){
+	public ArrayList<String> evaluate1(Rule r){
 		ArrayList<String> result= new ArrayList<>();
 		for(int i=1;i!=getValue(r.getType()).size()+1; i++) {
 			if(r.compare(sh.getRow(i)) && getValue(r.getType()).get(i).getBooleanCellValue()) {
@@ -83,7 +83,7 @@ public class Reader {
 	public static void main(String[] args) throws IOException {
 		Reader r=  new Reader(new File("C:/Users/Derick/Desktop/Long-Method.xlsx"));
 		Rule rule= new Rule("asd", "is_feature_envy", " ( LOC = 1 ), AND, ( LOC = 3 ) ");
-		System.out.println(r.evaluate( rule));
+		System.out.println(r.evaluate1( rule));
 	}
 
 }
