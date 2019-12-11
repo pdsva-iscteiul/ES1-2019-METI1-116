@@ -236,7 +236,7 @@ public class GUImakeRule extends JPanel {
 				public void actionPerformed(ActionEvent e) {
 					dispose();
 					frame.swapToMenu();
-					frame.AddRules(new Rule(textField.getText(),rdbtnNewRadioButton.isSelected(),rdbtnFeatureEnvy.isSelected(),GUImakeRule.this.textField.getText().split("  ")));
+					frame.AddRules(new Rule(textField.getText(),"is_long_method",GUImakeRule.this.textField.getText().split("  ")));
 				}
 			});
 			

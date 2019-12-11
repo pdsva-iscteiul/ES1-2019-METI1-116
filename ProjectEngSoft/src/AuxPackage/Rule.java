@@ -8,20 +8,18 @@ public class Rule {
 
 	private ArrayList<String> rulecomponentes;
 	private String name;
-	private boolean feature_envy;
-	private boolean long_method;
+	private String TypeOfcomparation;
 
 
-	public Rule(String name, boolean long_method,boolean feature_envy,String... subrule) {
+	public Rule(String name, String TypeOfcomparation,String... subrule) {
 		this.name=name;
 		rulecomponentes = new ArrayList<String>();
 		for (String string : subrule) {
 			rulecomponentes.add(string);
 		}
-		this.feature_envy=feature_envy;
-		this.long_method=long_method;
+		this.TypeOfcomparation=TypeOfcomparation;
 		//DEBUG
-		System.out.println(name +"   "+rulecomponentes.toString()+" " +long_method + " " + feature_envy);
+		System.out.println(name +"   "+rulecomponentes.toString()+" " +TypeOfcomparation );
 	}
 	public ArrayList<String> getRulecomponentes(){
 		return this.rulecomponentes;
@@ -31,12 +29,10 @@ public class Rule {
 		return name;
 	}
 
-	public boolean isfeture_envy() {
-		return feature_envy;
-	}
+	
 
-	public boolean isLong_method() {
-		return long_method;
+	public String getType() {
+		return TypeOfcomparation;
 	}
 
 	private boolean andOr(ArrayList<Boolean> booleanlist,ArrayList<String> operatorlist) {
@@ -58,22 +54,22 @@ public class Rule {
 		for (int i = 0; i < rulecomponentes.size(); i++) {
 			if(i%2==0) {
 				String[] arrayaux = rulecomponentes.get(i).split(" ");
-				Metric metricaux = Metric.StringToMetric(arrayaux[1]);
-				Integer number = Integer.parseInt(arrayaux[3]);
+				Metric metricaux = Metric.StringToMetric(arrayaux[2]);
+				Integer number = Integer.parseInt(arrayaux[4]);
 				boolean tester = false;
-					switch (arrayaux[2]) {
+					switch (arrayaux[3]) {
 					case "=":
-						if(number==Integer.parseInt(r.getCell(metricaux.getColumn()).toString())) {
+						if(number==(int)r.getCell(metricaux.getColumn()).getNumericCellValue()) {
 							tester = true;
 						}
 						break;
 					case ">":
-						if(number>Integer.parseInt(r.getCell(metricaux.getColumn()).toString())) {
+						if(number>(int)r.getCell(metricaux.getColumn()).getNumericCellValue()) {
 							tester = true;
 						}
 						break;
 					case "<":
-						if(number<Integer.parseInt(r.getCell(metricaux.getColumn()).toString())) {
+						if(number<(int)r.getCell(metricaux.getColumn()).getNumericCellValue()) {
 							tester = true;
 						}
 						break;
@@ -95,6 +91,8 @@ public class Rule {
 		return andOr(result,aux);
 
 	}
+	
+	
 
 	private enum Metric{
 		LOC(4), 

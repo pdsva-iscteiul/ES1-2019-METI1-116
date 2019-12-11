@@ -3,6 +3,7 @@ package AuxPackage;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.apache.poi.ss.usermodel.Cell;
@@ -46,7 +47,26 @@ public class Reader {
 		}
 		return aux;
 	}
-	
+
+	public ArrayList<String> evaluate(Rule r){
+		ArrayList<String> result= new ArrayList<>();
+		for(int i=1;i!=getValue(r.getType()).size()+1; i++) {
+			if(r.compare(sh.getRow(i)) && getValue(r.getType()).get(i).getBooleanCellValue()) {
+				result.add("DCI");
+			}
+			if(r.compare(sh.getRow(i)) && !getValue(r.getType()).get(i).getBooleanCellValue()) {
+				result.add("DII");
+			}
+			if(!r.compare(sh.getRow(i)) && !getValue(r.getType()).get(i).getBooleanCellValue()) {
+				result.add("ADCI");
+			}
+			if(!r.compare(sh.getRow(i)) && getValue(r.getType()).get(i).getBooleanCellValue()) {
+				result.add("ADII");
+			}
+		}
+		return result;
+	}
+
 	public HashMap<Integer, Cell> getValue(String metric){
 		HashMap<Integer, Cell> aux= new HashMap<Integer, Cell>();
 		Row row= sh.getRow(sh.getFirstRowNum());
@@ -60,4 +80,10 @@ public class Reader {
 		return aux;
 	}
 	
+	public static void main(String[] args) throws IOException {
+		Reader r=  new Reader(new File("C:/Users/Derick/Desktop/Long-Method.xlsx"));
+		Rule rule= new Rule("asd", "is_feature_envy", " ( LOC = 1 ), AND, ( LOC = 3 ) ");
+		System.out.println(r.evaluate( rule));
+	}
+
 }
