@@ -46,7 +46,6 @@ public class Rule {
 			if(operatorlist.get(i-1).contains("AND")) {
 				result = result && booleanlist.get(i);
 			}
-			
 		}
 		return result;
 	}
