@@ -2,6 +2,8 @@ package AuxPackage;
 
 import java.util.ArrayList;
 
+import org.apache.poi.ss.usermodel.Row;
+
 public class Rule {
 
 	private ArrayList<String> rulecomponentes;
@@ -50,7 +52,7 @@ public class Rule {
 		return result;
 	}
 	
-	public boolean compare(String metric ,int intToCompare, boolean long_method, boolean feture_envy) {
+	public boolean compare(Row r) {
 		ArrayList<Boolean> result = new ArrayList<>();
 		ArrayList<String> aux = new ArrayList<String>();
 		for (int i = 0; i < rulecomponentes.size(); i++) {
@@ -58,23 +60,29 @@ public class Rule {
 				String[] arrayaux = rulecomponentes.get(i).split(" ");
 				Metric metricaux = Metric.StringToMetric(arrayaux[1]);
 				Integer number = Integer.parseInt(arrayaux[3]);
-				Metric metricChosen = Metric.StringToMetric(metric);
-				if(metricChosen==metricaux) {
+				boolean tester = false;
 					switch (arrayaux[2]) {
 					case "=":
-						
+						if(number==Integer.parseInt(r.getCell(metricaux.getColumn()).toString())) {
+							tester = true;
+						}
 						break;
 					case ">":
-
+						if(number>Integer.parseInt(r.getCell(metricaux.getColumn()).toString())) {
+							tester = true;
+						}
 						break;
 					case "<":
-
+						if(number<Integer.parseInt(r.getCell(metricaux.getColumn()).toString())) {
+							tester = true;
+						}
 						break;
 
 					default:
 						break;
-					}
+					
 				}
+					result.add(tester);
 			}if(i%2==1) {
 				if(rulecomponentes.get(i).contains("OR")){
 					aux.add("OR");
@@ -89,10 +97,19 @@ public class Rule {
 	}
 
 	private enum Metric{
-		LOC, 
-		CYCLO, 
-		ATFD, 
-		LAA;
+		LOC(4), 
+		CYCLO(5), 
+		ATFD(6), 
+		LAA(7);
+
+		int column;
+		Metric(int column){
+			this.column=column;
+		}
+		
+		public int getColumn() {
+			return column;
+		}
 
 		static public Metric StringToMetric(String s) {
 			switch (s) {
