@@ -136,14 +136,13 @@ public class Reader {
 		}
 		return aux;
 	}
-<<<<<<< HEAD
+
 	
 	public static void main(String[] args) throws IOException {
 		Reader r=  new Reader(new File("C:/Users/Derick/Desktop/Long-Method.xlsx"));
 		Rule rule= new Rule("asd", "is_feature_envy", " ( LOC = 1 ), AND, ( LOC = 3 ) ");
 		System.out.println(r.evaluate1( rule));
 	}
-=======
->>>>>>> refs/heads/PMD_IPlasma
+
 
 }
