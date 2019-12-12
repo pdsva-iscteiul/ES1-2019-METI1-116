@@ -74,7 +74,7 @@ public class GUIresults extends JPanel {
 
 		table_1 = new JTable();
 		column = new String [1];
-			column[0] = "METHODID";
+		column[0] = "METHODID";
 		for (int x=1; x!=excel.read().length; x++) {
 			row = new String[x][1];
 		}
@@ -122,45 +122,47 @@ public class GUIresults extends JPanel {
 				else {
 					for(int i=0; i!=frame.getListOfRules().size();i++) {
 						if(frame.getListOfRules().get(i).getName().equals(comboBox.getSelectedItem().toString()))
-								doRows(comboBox.getSelectedItem().toString().replaceAll(" ",""), excel.evaluate1(frame.getListOfRules().get(i)));
+							doRows(comboBox.getSelectedItem().toString().replaceAll(" ",""), excel.evaluate1(frame.getListOfRules().get(i)));
 					}
 				}
 			}
 		});
-						btnStartFindingErrors.setFont(new Font("Dubai", Font.BOLD, 15));
-						btnStartFindingErrors.setBounds(310, 58, 167, 39);
-						add(btnStartFindingErrors);
+		btnStartFindingErrors.setFont(new Font("Dubai", Font.BOLD, 15));
+		btnStartFindingErrors.setBounds(310, 58, 167, 39);
+		add(btnStartFindingErrors);
 
-						JButton btnKj = new JButton("<<<");
-						btnKj.addActionListener(new ActionListener() {
-							public void actionPerformed(ActionEvent e) {
-								frame.swapToMenu();
-							}
-						});
-						btnKj.setFont(new Font("Tahoma", Font.BOLD, 11));
-						btnKj.setBackground(Color.LIGHT_GRAY);
-						btnKj.setBounds(10, 11, 68, 31);
-						add(btnKj);
+		JButton btnKj = new JButton("<<<");
+		btnKj.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.swapToMenu();
+			}
+		});
+		btnKj.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnKj.setBackground(Color.LIGHT_GRAY);
+		btnKj.setBounds(10, 11, 68, 31);
+		add(btnKj);
 
-						JLabel lblResults = new JLabel("RESULTS");
-						lblResults.setFont(new Font("Dubai", Font.BOLD, 30));
-						lblResults.setBounds(235, 2, 134, 39);
-						add(lblResults);
+		JLabel lblResults = new JLabel("RESULTS");
+		lblResults.setFont(new Font("Dubai", Font.BOLD, 30));
+		lblResults.setBounds(235, 2, 134, 39);
+		add(lblResults);
 
 
-						JLabel lblErrorsCounters = new JLabel("Errors Counters:");
-						lblErrorsCounters.setFont(new Font("Tahoma", Font.PLAIN, 18));
-						lblErrorsCounters.setBounds(41, 322, 157, 22);
-						add(lblErrorsCounters);
+		JLabel lblErrorsCounters = new JLabel("Errors Counters:");
+		lblErrorsCounters.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblErrorsCounters.setBounds(41, 322, 157, 22);
+		add(lblErrorsCounters);
 
-						JLabel lblErrorCounter = new JLabel("Error counter:");
-						lblErrorCounter.setFont(new Font("Dubai", Font.PLAIN, 25));
-						lblErrorCounter.setBounds(140, 138, 220, 43);
+		JLabel lblErrorCounter = new JLabel("Error counter:");
+		lblErrorCounter.setFont(new Font("Dubai", Font.PLAIN, 25));
+		lblErrorCounter.setBounds(140, 138, 220, 43);
 
 	}
 
 	public void doRows(String s, ArrayList<String> a) {
-		if(model.getColumnCount() <= 2) {
+		boolean b = model.findColumn(s) >= 0;
+
+		if (!b) {		
 			ArrayList<String> array = a;
 			model.addColumn(s);
 			model1.addColumn(s);
@@ -174,6 +176,8 @@ public class GUIresults extends JPanel {
 				model.setValueAt(array.get(i), i, model.findColumn(s));
 
 			}
+
 		}
+
 	}
 }
