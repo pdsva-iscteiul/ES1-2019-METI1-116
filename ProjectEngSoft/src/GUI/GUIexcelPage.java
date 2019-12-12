@@ -3,6 +3,8 @@ package GUI;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
@@ -13,6 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.Color;
+import java.awt.Desktop;
 import java.awt.SystemColor;
 
 public class GUIexcelPage extends JPanel {
@@ -93,11 +96,19 @@ public class GUIexcelPage extends JPanel {
 
 		JButton btnOpenExcelPage = new JButton("Open Excel Page");
 		btnOpenExcelPage.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				frame.setExcelPath(textField.getText());
-				//TODO ABRIR O EXCEL
+			public void actionPerformed(ActionEvent e) {
+				if(textField.getText().equals("")) {
+					JOptionPane.showMessageDialog(null,"Please select your excel file before clicking here.","ALERT MESSAGE",JOptionPane.WARNING_MESSAGE);
+				}else {
+					 try {
+					     Desktop desktop = Desktop.getDesktop();
+					     File myFile = new File(textField.getText());
+					     desktop.open(myFile);
+					     } catch (IOException ex) {}
+			
 			}
-		});
+			}
+			});
 		btnOpenExcelPage.setBackground(SystemColor.control);
 		btnOpenExcelPage.setFont(new Font("Dubai", Font.BOLD, 18));
 		btnOpenExcelPage.setBounds(86, 339, 164, 61);
