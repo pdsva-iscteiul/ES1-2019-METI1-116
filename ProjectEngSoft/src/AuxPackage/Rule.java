@@ -14,12 +14,15 @@ public class Rule {
 	public Rule(String name, String TypeOfcomparation,String... subrule) {
 		this.name=name;
 		rulecomponentes = new ArrayList<String>();
+		subrule[0]=subrule[0].replaceFirst(" ", "");
 		for (String string : subrule) {
 			rulecomponentes.add(string);
 		}
 		this.TypeOfcomparation=TypeOfcomparation;
 		//DEBUG
-		System.out.println(name +"   "+rulecomponentes.toString()+" " +TypeOfcomparation );
+		System.out.println(name +"   "+rulecomponentes.toString()+" " +TypeOfcomparation + "\n");
+
+		
 	}
 	public ArrayList<String> getRulecomponentes(){
 		return this.rulecomponentes;
@@ -54,10 +57,10 @@ public class Rule {
 		for (int i = 0; i < rulecomponentes.size(); i++) {
 			if(i%2==0) {
 				String[] arrayaux = rulecomponentes.get(i).split(" ");
-				Metric metricaux = Metric.StringToMetric(arrayaux[2]);
-				Integer number = Integer.parseInt(arrayaux[4]);
+				Metric metricaux = Metric.StringToMetric(arrayaux[1]);
+				Integer number = Integer.parseInt(arrayaux[3]);
 				boolean tester = false;
-					switch (arrayaux[3]) {
+					switch (arrayaux[2]) {
 					case "=":
 						if(number==(int)r.getCell(metricaux.getColumn()).getNumericCellValue()) {
 							tester = true;
