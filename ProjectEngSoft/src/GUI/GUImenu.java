@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 
 import java.awt.Color;
 import javax.swing.SwingConstants;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
@@ -43,7 +44,17 @@ public class GUImenu extends JPanel {
 		JButton btnShowResults = new JButton("Show results");
 		btnShowResults.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame.swapToResults();
+				try {
+					frame.swapToResults();
+				} catch (Exception e2) {
+					
+					JOptionPane.showMessageDialog(frame,
+						 	 "You dont have an excle file loaded, please chose a excle file first",
+							  "Missing excle file",
+						    JOptionPane.ERROR_MESSAGE);
+					
+				}
+				
 			}
 		});
 		btnShowResults.setBounds(130, 338, 352, 67);

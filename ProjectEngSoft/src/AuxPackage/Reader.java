@@ -102,7 +102,7 @@ public class Reader {
 	}
 
 
-	public ArrayList<String> evaluate1(Rule r){
+	public ArrayList<String> evaluateUserRule(Rule r){
 		DCI = 0;
 		DII = 0;
 		ADCI = 0;

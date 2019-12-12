@@ -3,21 +3,25 @@ package GUI;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.Color;
+import java.awt.Desktop;
 import java.awt.SystemColor;
 
 public class GUIexcelPage extends JPanel {
 	private JTextField textField;
 	private GUIprojectPresentation frame;
-	
+
 	/**
 	 * Create the panel.
 	 */
@@ -31,8 +35,22 @@ public class GUIexcelPage extends JPanel {
 		btnNewButton.setFont(new Font("Dubai", Font.BOLD, 18));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame.swapToMenu();	
-				frame.setExcelPath(textField.getText());
+				if(textField.getText().equals("")) {
+					String[] options = {"Ok, proceed anyway", "Cancel"};
+			        int optionChosen = JOptionPane.showOptionDialog(null, "You didnt chose an excel file!",
+			                "Excel file not chosen",
+			                JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
+			        if(optionChosen==0) {
+			        	frame.swapToMenu();	
+						frame.setExcelPath(textField.getText());
+			        }
+			        
+				}else {
+					frame.swapToMenu();	
+					frame.setExcelPath(textField.getText());
+				}
+				
+
 			}
 		});
 		setLayout(null);
@@ -69,24 +87,32 @@ public class GUIexcelPage extends JPanel {
 
 		JLayeredPane layeredPane = new JLayeredPane();
 		layeredPane.setBounds(439, 19, 1, 1);
-	add(layeredPane);
-		
+		add(layeredPane);
+
 		JLabel lblFirst = new JLabel("First,choose your excel file.");
 		lblFirst.setBounds(52, 43, 422, 52);
 		lblFirst.setFont(new Font("Dubai", Font.BOLD, 34));
-	add(lblFirst);
-	
-	JButton btnOpenExcelPage = new JButton("Open Excel Page");
-	btnOpenExcelPage.addActionListener(new ActionListener() {
-		public void actionPerformed(ActionEvent arg0) {
-			frame.setExcelPath(textField.getText());
-			//TODO ABRIR O EXCEL
-		}
-	});
-	btnOpenExcelPage.setBackground(SystemColor.control);
-	btnOpenExcelPage.setFont(new Font("Dubai", Font.BOLD, 18));
-	btnOpenExcelPage.setBounds(86, 339, 164, 61);
-	add(btnOpenExcelPage);
-		
+		add(lblFirst);
+
+		JButton btnOpenExcelPage = new JButton("Open Excel Page");
+		btnOpenExcelPage.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(textField.getText().equals("")) {
+					JOptionPane.showMessageDialog(null,"Please select your excel file before clicking here.","ALERT MESSAGE",JOptionPane.WARNING_MESSAGE);
+				}else {
+					 try {
+					     Desktop desktop = Desktop.getDesktop();
+					     File myFile = new File(textField.getText());
+					     desktop.open(myFile);
+					     } catch (IOException ex) {}
+			
+			}
+			}
+			});
+		btnOpenExcelPage.setBackground(SystemColor.control);
+		btnOpenExcelPage.setFont(new Font("Dubai", Font.BOLD, 18));
+		btnOpenExcelPage.setBounds(86, 339, 164, 61);
+		add(btnOpenExcelPage);
+
 	}
 }
