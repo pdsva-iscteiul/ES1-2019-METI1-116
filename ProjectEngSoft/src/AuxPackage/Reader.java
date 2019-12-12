@@ -31,16 +31,6 @@ public class Reader {
 		sh = wb.getSheetAt(0);
 	}
 
-	public static void main(String[] args)  {
-		Reader r ;
-		try {
-			r = new Reader(new File ("C:/Users/lenovo 530S-14IKB/Desktop/Long-Method.xlsx"));
-			r.evaluate("iPlasma");
-			System.out.println(r.ADCI);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
 
 
 	public  ArrayList<String> evaluate(String a) {
