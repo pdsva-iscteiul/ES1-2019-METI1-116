@@ -35,10 +35,10 @@ public class GUIexcelPage extends JPanel {
 		btnNewButton.setFont(new Font("Dubai", Font.BOLD, 18));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(frame.getExcelPath()==null) {
+				if(textField.getText().equals("")) {
 					String[] options = {"Ok, proceed anyway", "Cancel"};
-			        int optionChosen = JOptionPane.showOptionDialog(null, "You didnt chose an excle file!",
-			                "Excle file not chosen",
+			        int optionChosen = JOptionPane.showOptionDialog(null, "You didnt chose an excel file!",
+			                "Excel file not chosen",
 			                JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
 			        if(optionChosen==0) {
 			        	frame.swapToMenu();	
