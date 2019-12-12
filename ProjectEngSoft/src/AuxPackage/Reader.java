@@ -128,7 +128,9 @@ public class Reader {
 		}
 		return result;
 	}
-
+	public Sheet getSh() {
+		return sh;
+	}
 
 	public HashMap<Integer, Cell> getValue(String metric){
 		HashMap<Integer, Cell> aux= new HashMap<Integer, Cell>();

@@ -75,7 +75,8 @@ public class GUIresults extends JPanel {
 		table_1 = new JTable();
 		column = new String [1];
 		column[0] = "METHODID";
-		for (int x=1; x!=excel.read().length; x++) {
+		int size = excel.getSh().getLastRowNum()+1;
+		for (int x=1; x!=size; x++) {
 			row = new String[x][1];
 		}
 		model = (new DefaultTableModel(row, column){
