@@ -40,7 +40,7 @@ public class GUIexcelPage extends JPanel {
 
 		JButton btnNewButton_1 = new JButton("Search file");
 		btnNewButton_1.setBackground(new Color(248, 248, 255));
-		btnNewButton_1.setBounds(432, 179, 113, 61);
+		btnNewButton_1.setBounds(432, 179, 129, 61);
 		btnNewButton_1.setFont(new Font("Dubai", Font.BOLD, 18));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
