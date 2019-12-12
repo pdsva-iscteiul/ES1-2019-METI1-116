@@ -16,5 +16,15 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="/Users/pedrov510/.m2/repository/org/apache/poi/poi/4.1.1/poi-4.1.1.jar" sourcepath="/Users/pedrov510/.m2/repository/org/apache/poi/poi/4.1.1/poi-4.1.1-sources.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="maven.groupId" value="org.apache.poi"/>
+			<attribute name="maven.artifactId" value="poi"/>
+			<attribute name="maven.version" value="4.1.1"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
