@@ -279,8 +279,7 @@ public class GUImakeRule extends JPanel {
 
 				}
 			});
-
-
+ 
 		}
 	}
 	private enum Tracker{
