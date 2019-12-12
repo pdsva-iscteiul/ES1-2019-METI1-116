@@ -112,7 +112,7 @@ public class GUImakeRule extends JPanel {
 		rdbtnFeatureEnvy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				comboBox_1.setModel(new DefaultComboBoxModel(featureEnvy));
-				selectedType = "feature_envy";
+				selectedType = "is_feature_envy";
 			}
 		});
 		buttonGroup.add(rdbtnFeatureEnvy);
@@ -145,6 +145,7 @@ public class GUImakeRule extends JPanel {
 				if(tracker == Tracker.Metrics) {
 					String newText = textField.getText() + " ( " + comboBox_1.getItemAt(comboBox_1.getSelectedIndex());
 					textField.setText(newText);
+					comboBox_1.setEnabled(false);
 					tracker=Tracker.Logical;
 				}else {
 					JOptionPane.showMessageDialog(frame,
@@ -164,23 +165,43 @@ public class GUImakeRule extends JPanel {
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Integer.parseInt(textField_1.getText());
+					Double.parseDouble(textField_1.getText());
 				}catch(Exception exception) {
 					JOptionPane.showMessageDialog(frame,
-							"You have to inster an Integer",
+							"You have to insert an Double",
 							"Invalid input",
 							JOptionPane.ERROR_MESSAGE);
 					return;
 				}
+				if(Double.parseDouble(textField_1.getText())>=0) {
+					if(tracker==Tracker.Limits) {
+						String newText = textField.getText() + " " + textField_1.getText() + " ) ";
+						System.out.println(comboBox_1.getSelectedItem().toString());
+						System.out.println(Double.parseDouble(textField_1.getText()));
+						System.out.println(comboBox_1.getSelectedItem().toString()=="LAA");
+						System.out.println(Double.parseDouble(textField_1.getText())<=1.0);
+						System.out.println(Double.parseDouble(textField_1.getText())>=0);
+						if(!(comboBox_1.getSelectedItem().toString()=="LAA") || (Double.parseDouble(textField_1.getText())<=1.0 && Double.parseDouble(textField_1.getText())>=0)) {
+							textField.setText(newText);
+							comboBox_1.setEnabled(true);
+							tracker=Tracker.Operators;
+						}else {
+							JOptionPane.showMessageDialog(frame,
+									"You have to insert a Double between 0 and 1",
+									"Invalid input",
+									JOptionPane.ERROR_MESSAGE);
 
-				if(tracker==Tracker.Limits) {
-					String newText = textField.getText() + " " + textField_1.getText() + " ) ";
-					textField.setText(newText);
-					tracker=Tracker.Operators;
+						}
+					}else {
+						JOptionPane.showMessageDialog(frame,
+								"You are expected to add a "+tracker.meaning,
+								"Invalid command",
+								JOptionPane.ERROR_MESSAGE);
+					}
 				}else {
 					JOptionPane.showMessageDialog(frame,
-							"You are expected to add a "+tracker.meaning,
-							"Invalid command",
+							"You have to insert a positive value",
+							"Invalid input",
 							JOptionPane.ERROR_MESSAGE);
 				}
 			}
@@ -279,7 +300,7 @@ public class GUImakeRule extends JPanel {
 
 				}
 			});
- 
+
 		}
 	}
 	private enum Tracker{

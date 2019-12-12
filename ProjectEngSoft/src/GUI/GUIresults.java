@@ -122,7 +122,7 @@ public class GUIresults extends JPanel {
 				else {
 					for(int i=0; i!=frame.getListOfRules().size();i++) {
 						if(frame.getListOfRules().get(i).getName().equals(comboBox.getSelectedItem().toString()))
-								doRows(comboBox.getSelectedItem().toString().replaceAll(" ",""), excel.evaluate1(frame.getListOfRules().get(i)));
+								doRows(comboBox.getSelectedItem().toString().replaceAll(" ",""), excel.evaluateUserRule(frame.getListOfRules().get(i)));
 					}
 				}
 			}

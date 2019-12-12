@@ -19,8 +19,6 @@ public class Rule {
 			rulecomponentes.add(string);
 		}
 		this.TypeOfcomparation=TypeOfcomparation;
-		//DEBUG
-		System.out.println(name +"   "+rulecomponentes.toString()+" " +TypeOfcomparation + "\n");
 
 		
 	}
@@ -58,21 +56,22 @@ public class Rule {
 			if(i%2==0) {
 				String[] arrayaux = rulecomponentes.get(i).split(" ");
 				Metric metricaux = Metric.StringToMetric(arrayaux[1]);
-				Integer number = Integer.parseInt(arrayaux[3]);
+				Double number = Double.parseDouble((arrayaux[3]));
 				boolean tester = false;
-					switch (arrayaux[2]) {
+				switch (arrayaux[2]) {
+					
 					case "=":
-						if(number==(int)r.getCell(metricaux.getColumn()).getNumericCellValue()) {
+						if(( Double.parseDouble(r.getCell(metricaux.getColumn()).toString())==number)) {
 							tester = true;
 						}
 						break;
 					case ">":
-						if(number>(int)r.getCell(metricaux.getColumn()).getNumericCellValue()) {
+						if(( Double.parseDouble(r.getCell(metricaux.getColumn()).toString())>number)) {
 							tester = true;
 						}
 						break;
 					case "<":
-						if(number<(int)r.getCell(metricaux.getColumn()).getNumericCellValue()) {
+						if(( Double.parseDouble(r.getCell(metricaux.getColumn()).toString())<number)) {
 							tester = true;
 						}
 						break;
