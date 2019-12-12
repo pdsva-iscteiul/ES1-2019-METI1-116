@@ -7,8 +7,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.Font;
 import javax.swing.SwingConstants;
+
+import AuxPackage.Rule;
 
 import java.awt.Color;
 import javax.swing.JButton;
@@ -20,6 +23,9 @@ import java.awt.SystemColor;
 public class GUIprojectPresentation extends JFrame{
 
 	private JFrame frame;
+	private ArrayList<Rule> listOfRules;
+	private String excelPath;
+
 
 	/**
 	 * Launch the application.
@@ -49,6 +55,7 @@ public class GUIprojectPresentation extends JFrame{
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		listOfRules = new ArrayList<Rule>();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setForeground(new Color(105, 105, 105));
 		frame.getContentPane().setBackground(new Color(230, 230, 250));
@@ -101,6 +108,12 @@ public class GUIprojectPresentation extends JFrame{
 		});
 
 	}
+	public String getExcelPath() {
+		return excelPath;
+	}
+	public void setExcelPath(String s) {
+		excelPath=s;
+	}
 	public void swapToexcel() {
 		JPanel j = new GUIexcelPage(this);
 		j.setBounds(0, 0, 586, 463);
@@ -136,4 +149,15 @@ public class GUIprojectPresentation extends JFrame{
 		frame.getContentPane().repaint();
 		frame.getContentPane().revalidate();
 }
+	public void AddRules(Rule rule) {
+		listOfRules.add(rule);
+	}
+	
+	public void RemoveRules(Rule rule) {
+		listOfRules.remove(rule);
+	}
+	
+	public ArrayList<Rule> getListOfRules(){
+		return this.listOfRules;
+	}
 }
