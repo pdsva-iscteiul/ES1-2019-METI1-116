@@ -19,12 +19,15 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ButtonGroup;
 
 public class GUImakeRule extends JPanel {
 	private JTextField textField_1;
 	private JTextField textField;
 	private GUIprojectPresentation frame;
 	private Tracker tracker=Tracker.Metrics;
+	private String selectedType;
+	private final ButtonGroup buttonGroup = new ButtonGroup();
 	/**
 	 * Create the panel.
 	 */
@@ -52,7 +55,7 @@ public class GUImakeRule extends JPanel {
 		lblLogicalOperator.setFont(new Font("Dubai", Font.PLAIN, 24));
 		lblLogicalOperator.setBounds(57, 194, 163, 34);
 		add(lblLogicalOperator);
-		
+	
 		textField_1 = new JTextField();
 		textField_1.setBounds(258, 258, 68, 29);
 		add(textField_1);
@@ -63,6 +66,8 @@ public class GUImakeRule extends JPanel {
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"=", ">", "<"}));
 		comboBox.setBounds(258, 198, 68, 31);
 		add(comboBox);
+		
+		
 		
 		JButton btnDone = new JButton("Save");
 		btnDone.setFont(new Font("Dubai", Font.BOLD, 18));
@@ -85,9 +90,47 @@ public class GUImakeRule extends JPanel {
 		add(btnDone);
 		
 		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"LOC", "CYCLO", "ATFD", "LAA"}));
+		String[] long_method={"LOC", "CYCLO"}; 
+		String[] featureEnvy={"ATFD", "LAA"}; 
+		comboBox_1.setModel(new DefaultComboBoxModel(long_method));
 		comboBox_1.setBounds(258, 135, 68, 31);
 		add(comboBox_1);
+		
+		JRadioButton rdbtnNewRadioButton = new JRadioButton("Long_method",true);
+		rdbtnNewRadioButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				comboBox_1.setModel(new DefaultComboBoxModel(long_method));
+				selectedType = "is_long_method";
+			}
+		});
+		buttonGroup.add(rdbtnNewRadioButton);
+		rdbtnNewRadioButton.setBounds(52, 84, 109, 27);
+		add(rdbtnNewRadioButton);
+		rdbtnNewRadioButton.setBackground(new Color(240, 248, 255));
+		
+		JRadioButton rdbtnFeatureEnvy = new JRadioButton("Feature envy");
+		rdbtnFeatureEnvy.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				comboBox_1.setModel(new DefaultComboBoxModel(featureEnvy));
+				selectedType = "feature_envy";
+			}
+		});
+		buttonGroup.add(rdbtnFeatureEnvy);
+		rdbtnFeatureEnvy.setBounds(282, 84, 109, 27);
+		add(rdbtnFeatureEnvy);
+		rdbtnFeatureEnvy.setBackground(new Color(240, 248, 255));
+		
+		
+		JButton btnKj = new JButton("<<<");
+		btnKj.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.swapToMenu();
+			}
+		});
+		btnKj.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnKj.setBackground(Color.LIGHT_GRAY);
+		btnKj.setBounds(10, 11, 68, 31);
+		add(btnKj);
 		
 		textField = new JTextField();
 		textField.setEditable(false);
@@ -109,6 +152,8 @@ public class GUImakeRule extends JPanel {
 						    "Invalid command",
 						    JOptionPane.ERROR_MESSAGE);
 				}
+				rdbtnFeatureEnvy.setEnabled(false);
+				rdbtnNewRadioButton.setEnabled(false);
 			}
 		});
 		btnAdd.setFont(new Font("Dubai", Font.PLAIN, 14));
@@ -223,20 +268,14 @@ public class GUImakeRule extends JPanel {
 			lblRuleName.setBounds(53, 25, 105, 23);
 			contentPane.add(lblRuleName);
 			
-			JRadioButton rdbtnNewRadioButton = new JRadioButton("Long_method");
-			rdbtnNewRadioButton.setBounds(49, 61, 109, 23);
-			contentPane.add(rdbtnNewRadioButton);
-			
-			JRadioButton rdbtnFeatureEnvy = new JRadioButton("Feature envy");
-			rdbtnFeatureEnvy.setBounds(279, 61, 109, 23);
-			contentPane.add(rdbtnFeatureEnvy);
 			btnOk.addActionListener(new ActionListener() {
 				
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					dispose();
 					frame.swapToMenu();
-					frame.AddRules(new Rule(textField.getText(),"is_long_method",GUImakeRule.this.textField.getText().split("  ")));
+					System.out.println();
+					frame.AddRules(new Rule(textField.getText(),selectedType,GUImakeRule.this.textField.getText().split("  ")));
 					
 				}
 			});
