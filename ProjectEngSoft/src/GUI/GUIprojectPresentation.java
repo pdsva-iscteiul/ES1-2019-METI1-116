@@ -20,6 +20,7 @@ import java.awt.SystemColor;
 public class GUIprojectPresentation extends JFrame{
 
 	private JFrame frame;
+	private String excelPath;
 
 	/**
 	 * Launch the application.
@@ -100,6 +101,12 @@ public class GUIprojectPresentation extends JFrame{
 			}
 		});
 
+	}
+	public String getExcelPath() {
+		return excelPath;
+	}
+	public void setExcelPath(String s) {
+		excelPath=s;
 	}
 	public void swapToexcel() {
 		JPanel j = new GUIexcelPage(this);

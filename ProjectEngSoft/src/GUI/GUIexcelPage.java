@@ -32,7 +32,7 @@ public class GUIexcelPage extends JPanel {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.swapToMenu();	
-			
+				frame.setExcelPath(textField.getText());
 			}
 		});
 		setLayout(null);
@@ -77,6 +77,12 @@ public class GUIexcelPage extends JPanel {
 	add(lblFirst);
 	
 	JButton btnOpenExcelPage = new JButton("Open Excel Page");
+	btnOpenExcelPage.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent arg0) {
+			frame.setExcelPath(textField.getText());
+			//TODO ABRIR O EXCEL
+		}
+	});
 	btnOpenExcelPage.setBackground(SystemColor.control);
 	btnOpenExcelPage.setFont(new Font("Dubai", Font.BOLD, 18));
 	btnOpenExcelPage.setBounds(86, 339, 164, 61);

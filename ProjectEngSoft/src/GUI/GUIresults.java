@@ -53,7 +53,7 @@ public class GUIresults extends JPanel {
 		setBounds(100, 100, 600, 500);
 
 		try {
-			excel = new Reader (new File ("C:/Users/lenovo 530S-14IKB/Desktop/Long-Method.xlsx"));
+			excel = new Reader (new File (frame.getExcelPath()));
 		}catch(Exception e ) {};
 
 
