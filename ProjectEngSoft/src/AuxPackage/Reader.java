@@ -5,14 +5,12 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.openxmlformats.schemas.drawingml.x2006.chart.impl.STRadarStyleImpl;
 
 public class Reader {
 
@@ -105,19 +103,27 @@ public class Reader {
 
 
 	public ArrayList<String> evaluate1(Rule r){
+		DCI = 0;
+		DII = 0;
+		ADCI = 0;
+		ADII = 0;
 		ArrayList<String> result= new ArrayList<>();
 		for(int i=1;i!=getValue(r.getType()).size()+1; i++) {
 			if(r.compare(sh.getRow(i)) && getValue(r.getType()).get(i).getBooleanCellValue()) {
 				result.add("DCI");
+				DCI++;
 			}
 			if(r.compare(sh.getRow(i)) && !getValue(r.getType()).get(i).getBooleanCellValue()) {
 				result.add("DII");
+				DII++;
 			}
 			if(!r.compare(sh.getRow(i)) && !getValue(r.getType()).get(i).getBooleanCellValue()) {
 				result.add("ADCI");
+				ADCI++;
 			}
 			if(!r.compare(sh.getRow(i)) && getValue(r.getType()).get(i).getBooleanCellValue()) {
 				result.add("ADII");
+				ADII++;
 			}
 		}
 		return result;

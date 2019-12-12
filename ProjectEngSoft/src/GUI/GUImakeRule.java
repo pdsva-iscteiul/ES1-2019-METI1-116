@@ -237,6 +237,7 @@ public class GUImakeRule extends JPanel {
 					dispose();
 					frame.swapToMenu();
 					frame.AddRules(new Rule(textField.getText(),"is_long_method",GUImakeRule.this.textField.getText().split("  ")));
+					
 				}
 			});
 			
