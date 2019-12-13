@@ -51,7 +51,7 @@ class RuleTest {
 	}
 
 	@BeforeEach
-	void setUp() throws Exception {
+	void setUp() throws Exception {  
 		
 		TypeOfComparation1  = "is_long_method";
 		TypeOfComparation2 = "is_feature_envy";
