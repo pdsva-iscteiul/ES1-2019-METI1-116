@@ -21,9 +21,8 @@ import java.awt.SystemColor;
 
 
 /**
- * @author Sofia Figueiredo
- * 
  * Main frame that let us run the program.
+ * @author Sofia Figueiredo
  * 
  */
 public class GUIprojectPresentation extends JFrame{
@@ -116,18 +115,17 @@ public class GUIprojectPresentation extends JFrame{
 	}
 	
 	/**
-	 * @return excelPath
-	 * 
 	 * Return the path to excel.
+	 * @return excelPath
 	 */
 	public String getExcelPath() {
 		return excelPath;
 	}
 	
 	/**
-	 * @param s -> path to excel
-	 * 
 	 * Changes the path to excel.
+	 * @param s -> path to excel
+	 *
 	 */
 	public void setExcelPath(String s) {
 		excelPath=s;
@@ -185,18 +183,17 @@ public class GUIprojectPresentation extends JFrame{
 	
 	
 	/**
-	 * @param rule -> Rule to be added
-	 * 
 	 * Add rules into the listOfRules.
+	 * @param rule Rule to be added
+	 * 
 	 */
 	public void AddRules(Rule rule) {
 		listOfRules.add(rule);
 	}
 	
 	/**
-	 * @param rule -> Rule to be removed
-	 * 
 	 * Remove rules of the listOfRules.
+	 * @param rule Rule to be removed
 	 */
 	public void RemoveRules(Rule rule) {
 		listOfRules.remove(rule);
@@ -204,9 +201,9 @@ public class GUIprojectPresentation extends JFrame{
 	
 	
 	/**
-	 * @return listOfRules 
-	 * 
-	 * Return the listOfRules.
+	 *Return the listOfRules.
+	 *
+	 * @return listOfRules
 	 */
 	public ArrayList<Rule> getListOfRules(){
 		return this.listOfRules;

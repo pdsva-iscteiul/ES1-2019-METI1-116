@@ -84,7 +84,7 @@ public class Reader {
 
 	/**
 	 * @return ADCI returns the counter of ADCI for evaluation 
-	 * Returns the ADCI value.
+	 *
 	 */
 	public int getADCI() {
 		return ADCI;

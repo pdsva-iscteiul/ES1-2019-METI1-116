@@ -31,10 +31,10 @@ import java.awt.SystemColor;
 
 
 /**
- * @author Sofia Figueiredo
  * 
  * Display on GUI the results of rules evaluation.
- *
+ * @author Sofia Figueiredo
+ * 
  */
 public class GUIresults extends JPanel {
 	private GUIprojectPresentation frame;
@@ -51,9 +51,9 @@ public class GUIresults extends JPanel {
 	private JTable table_2;
 	
 	/**
-	 * @param frame -> Main frame
-	 * 
 	 * Constructor of the GUIresults page.
+	 * @param frame  Main frame
+	 * 
 	 */
 	public GUIresults(GUIprojectPresentation frame) {
 		setBackground(new Color(240, 248, 255));
@@ -170,10 +170,10 @@ public class GUIresults extends JPanel {
 	}
 
 	/**
+	 * Procedure that, according to the column, make rows in the tables. 
 	 * @param s -> string for a new column
 	 * @param a -> Array to be used to make the rows
 	 * 
-	 * Procedure that, according to the column, make rows in the tables. 
 	 */
 	public void doRows(String s, ArrayList<String> a) {
 		boolean b = model.findColumn(s) >= 0;
