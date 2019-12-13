@@ -53,7 +53,7 @@ public class GUIexcelPage extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				if(textField.getText().equals("")) {
 					String[] options = {"Ok, proceed anyway", "Cancel"};
-			        int optionChosen = JOptionPane.showOptionDialog(null, "You didnt chose an excel file!",
+			        int optionChosen = JOptionPane.showOptionDialog(null, "You didnt choose an excel file!",
 			                "Excel file not chosen",
 			                JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
 			        if(optionChosen==0) {
