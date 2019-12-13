@@ -12,8 +12,12 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-public class Reader {
-
+/**
+ * The class Reader is responsible for any type of excel reading in the project
+ * @author Derick
+ *
+ */
+public class Reader { 
 	private Workbook wb;
 	private Sheet sh;
 	private FileInputStream excelFile;
@@ -23,6 +27,10 @@ public class Reader {
 	private int ADII;
 
 
+	/**
+	 * @param f the parameter f is the excel file to read 
+	 * @throws IOException Exception for the case the excel file doesn't exist
+	 */
 	public Reader(File f) throws IOException {
 		excelFile = new FileInputStream(f);
 		wb = new XSSFWorkbook(excelFile);
@@ -30,10 +38,10 @@ public class Reader {
 	}
 
 	/**
-	 * @param a
+	 * This function evaluates, according to the quality indicators, the tools existing in an excel file.
+	 * @param a this parameter is the metric that this function is evaluating 
 	 * @return s
 	 * 
-	 * This function evaluates, according to the quality indicators, the tools existing in an excel file.
 	 */
 	public  ArrayList<String> evaluate(String a)  {
 		ArrayList<String> s = new ArrayList<String>();
@@ -65,8 +73,7 @@ public class Reader {
 
 
 	/**
-	 * @return DCI 
-	 * Returns the DCI value.
+	 * @return DCI returns the counter of DCI for evaluation 
 	 * 
 	 */
 	public int getDCI() {
@@ -75,7 +82,7 @@ public class Reader {
 
 
 	/**
-	 * @return ADCI
+	 * @return ADCI returns the counter of ADCI for evaluation 
 	 * Returns the ADCI value.
 	 */
 	public int getADCI() {
@@ -84,22 +91,24 @@ public class Reader {
 
 
 	/**
-	 * @return DII
-	 * Returns the DII value.
+	 * @return DII returns the counter of DII for evaluation 
 	 */
 	public int getDII() {
 		return DII;
 	}
 
 	/**
-	 * @return ADII
-	 * Returns the ADII value.
+	 * @return ADII returns the counter of ADII for evaluation 
 	 */
 	public int getADII() {
 		return ADII;
 	}
 
 	
+	/**
+	 * Function that read all the excel file and saves it on an array
+	 * @return the static array with the data of de excel
+	 */
 	public String [][] read(){
 		DataFormatter formatter= new DataFormatter();
 		String [][] aux = null;
@@ -123,6 +132,11 @@ public class Reader {
 	}
 
 
+	/**
+	 *  the function makes the evaluation of the rules made by the users, comparing with is_long_method or is_feature_envy 
+	 * @param r the rule that is going to be compared with is_long_method or _is_feature_envy
+	 * @return ArrayList with all the result for each line of the excel file (DCI, DII, ADCI or ADII)
+	 */
 	public ArrayList<String> evaluateUserRule(Rule r){
 		DCI = 0;
 		DII = 0;
@@ -150,10 +164,18 @@ public class Reader {
 		return result;
 	}
 	
+	/**
+	 * @return the sheet of the excel file
+	 */
 	public Sheet getSh() {
 		return sh;
 	}
 
+	/**
+	 * function that receives a metric and shows all the values in each row for the metric chosen  
+	 * @param metric string to search on the excel file
+	 * @return an hashMap that contains all the values for a metric specified, related to their method_id 
+	 */
 	public HashMap<Integer, Cell> getValue(String metric){
 		HashMap<Integer, Cell> aux= new HashMap<Integer, Cell>();
 		Row row= sh.getRow(sh.getFirstRowNum());
