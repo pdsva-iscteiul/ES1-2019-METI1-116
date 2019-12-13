@@ -18,12 +18,23 @@ import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.SystemColor;
 
+
+
+/**
+ * 
+ * @author João Figueiredo
+ * 
+ * The purpose of this class is to create the panel that will make you choose your excel file,
+ * as well as get his location so it can be opened and read.
+ * Enabling the other frames.
+ *
+ */
 public class GUIexcelPage extends JPanel {
 	private JTextField textField;
 	private GUIprojectPresentation frame;
 
 	/**
-	 * Create the panel.
+	 * Create the panel 
 	 */
 	public GUIexcelPage( GUIprojectPresentation frame) {
 		setBackground(new Color(240, 248, 255));
@@ -94,6 +105,8 @@ public class GUIexcelPage extends JPanel {
 		lblFirst.setFont(new Font("Dubai", Font.BOLD, 34));
 		add(lblFirst);
 
+		
+		
 		JButton btnOpenExcelPage = new JButton("Open Excel Page");
 		btnOpenExcelPage.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
