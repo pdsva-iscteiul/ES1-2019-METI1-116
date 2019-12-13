@@ -14,7 +14,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 /**
  * The class Reader is responsible for any type of excel reading in the project
- * @author Derick
+ * @author Derick Piedade
  *
  */
 public class Reader { 
@@ -39,6 +39,7 @@ public class Reader {
 
 	/**
 	 * This function evaluates, according to the quality indicators, the tools existing in an excel file.
+	 * @author Sofia Figueiredo
 	 * @param a this parameter is the metric that this function is evaluating 
 	 * @return s
 	 * 

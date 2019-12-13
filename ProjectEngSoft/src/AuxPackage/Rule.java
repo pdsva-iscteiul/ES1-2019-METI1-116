@@ -56,6 +56,7 @@ public class Rule {
 	}
 
 	/**
+	 * @author Derick Piedade
 	 * This function receive a array of boolean and compares it with an array of operators
 	 * Example {true,false,true} and {and,or} will return the result of (true && false || true);
 	 * @param booleanlist array list of boolean to be compared
