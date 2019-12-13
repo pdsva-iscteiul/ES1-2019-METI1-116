@@ -17,7 +17,6 @@ import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
-import java.awt.SystemColor;
 
 
 /**
@@ -28,6 +27,10 @@ import java.awt.SystemColor;
  */
 public class GUIprojectPresentation extends JFrame{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JFrame frame;
 	private ArrayList<Rule> listOfRules;
 	private String excelPath;

@@ -3,31 +3,22 @@ package GUI;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JComboBox;
-import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JList;
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.io.File;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Vector;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
 
-import org.apache.poi.ss.usermodel.Cell;
 
 import AuxPackage.Reader;
-import AuxPackage.Rule;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.SystemColor;
 
 
 /**
@@ -37,11 +28,17 @@ import java.awt.SystemColor;
  *
  */
 public class GUIresults extends JPanel {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@SuppressWarnings("unused")
 	private GUIprojectPresentation frame;
+	@SuppressWarnings("unused")
 	private JTable table;
 	private Reader excel;
 	private JTable table_1;
-	private JComboBox comboBox;
+	private JComboBox<String> comboBox;
 	private String[] column;
 	private String[][] row;
 	private String[] column1;
@@ -67,7 +64,7 @@ public class GUIresults extends JPanel {
 
 
 
-		comboBox = new JComboBox();
+		comboBox = new JComboBox<String>();
 		//		{"", "PMD ", "iPlasma",}
 		String[] s=  new String[3+frame.getListOfRules().size()];
 		s[0]="";
@@ -76,7 +73,7 @@ public class GUIresults extends JPanel {
 		for( int i=3; i!= s.length; i++) {
 			s[i]=frame.getListOfRules().get(i-3).getName();
 		}
-		comboBox.setModel(new DefaultComboBoxModel(s));
+		comboBox.setModel(new DefaultComboBoxModel<String>(s));
 		comboBox.setBounds(118, 58, 122, 39);
 		add(comboBox);
 
@@ -89,6 +86,11 @@ public class GUIresults extends JPanel {
 			row = new String[x][1];
 		}
 		model = (new DefaultTableModel(row, column){
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
 			@Override
 			public boolean isCellEditable(int row, int column){
 				return false;
@@ -113,6 +115,11 @@ public class GUIresults extends JPanel {
 
 
 		model1 = (new DefaultTableModel(row1, column1){
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
 			@Override
 			public boolean isCellEditable(int row, int column){
 				return false;

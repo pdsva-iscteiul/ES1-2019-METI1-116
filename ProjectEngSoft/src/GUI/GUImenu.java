@@ -1,7 +1,6 @@
 package GUI;
 
 import javax.swing.JPanel;
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.JLabel;
@@ -12,7 +11,6 @@ import javax.swing.SwingConstants;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JComboBox;
 
 /**
  * This class represent the menu GUI which enables the user to chose between creating a rule, evaluate the rules and chose another excel file
@@ -20,10 +18,16 @@ import javax.swing.JComboBox;
  *
  */
 public class GUImenu extends JPanel {
+	/**
+	 * 
+	 */
+	
+	private static final long serialVersionUID = 1L;
+	@SuppressWarnings("unused")
 	private GUIprojectPresentation frame; 
 	
 	/**
-	 * @param frame recevies the frame where this Jpanel will be put in
+	 * @param frame receives the frame where this Jpanel will be put in
 	 */
 	public GUImenu(GUIprojectPresentation frame) {
 		setBackground(new Color(240, 248, 255));

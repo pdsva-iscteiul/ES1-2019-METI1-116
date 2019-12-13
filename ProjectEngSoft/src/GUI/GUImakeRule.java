@@ -26,6 +26,10 @@ import javax.swing.ButtonGroup;
  *
  */
 public class GUImakeRule extends JPanel {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JTextField textField_1;
 	private JTextField textField;
 	private GUIprojectPresentation frame;
@@ -68,9 +72,9 @@ public class GUImakeRule extends JPanel {
 		add(textField_1);
 		textField_1.setColumns(10);
 
-		JComboBox comboBox = new JComboBox();
+		JComboBox<String> comboBox = new JComboBox<String>();
 		comboBox.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"=", ">", "<"}));
+		comboBox.setModel(new DefaultComboBoxModel<String>(new String[] {"=", ">", "<"}));
 		comboBox.setBounds(258, 198, 68, 31);
 		add(comboBox);
 
@@ -96,17 +100,17 @@ public class GUImakeRule extends JPanel {
 		btnDone.setBounds(379, 359, 96, 35);
 		add(btnDone);
 
-		JComboBox comboBox_1 = new JComboBox();
+		JComboBox<String> comboBox_1 = new JComboBox<String>();
 		String[] long_method={"LOC", "CYCLO"}; 
 		String[] featureEnvy={"ATFD", "LAA"}; 
-		comboBox_1.setModel(new DefaultComboBoxModel(long_method));
+		comboBox_1.setModel(new DefaultComboBoxModel<String>(long_method));
 		comboBox_1.setBounds(258, 135, 68, 31);
 		add(comboBox_1);
 
 		JRadioButton rdbtnNewRadioButton = new JRadioButton("Long_method",true);
 		rdbtnNewRadioButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				comboBox_1.setModel(new DefaultComboBoxModel(long_method));
+				comboBox_1.setModel(new DefaultComboBoxModel<String>(long_method));
 				selectedType = "is_long_method";
 			}
 		});
@@ -118,7 +122,7 @@ public class GUImakeRule extends JPanel {
 		JRadioButton rdbtnFeatureEnvy = new JRadioButton("Feature envy");
 		rdbtnFeatureEnvy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				comboBox_1.setModel(new DefaultComboBoxModel(featureEnvy));
+				comboBox_1.setModel(new DefaultComboBoxModel<String>(featureEnvy));
 				selectedType = "is_feature_envy";
 			}
 		});
@@ -183,11 +187,6 @@ public class GUImakeRule extends JPanel {
 				if(Double.parseDouble(textField_1.getText())>=0) {
 					if(tracker==Tracker.Limits) {
 						String newText = textField.getText() + " " + textField_1.getText() + " ) ";
-						System.out.println(comboBox_1.getSelectedItem().toString());
-						System.out.println(Double.parseDouble(textField_1.getText()));
-						System.out.println(comboBox_1.getSelectedItem().toString()=="LAA");
-						System.out.println(Double.parseDouble(textField_1.getText())<=1.0);
-						System.out.println(Double.parseDouble(textField_1.getText())>=0);
 						if(!(comboBox_1.getSelectedItem().toString()=="LAA") || (Double.parseDouble(textField_1.getText())<=1.0 && Double.parseDouble(textField_1.getText())>=0)) {
 							textField.setText(newText);
 							comboBox_1.setEnabled(true);
@@ -242,8 +241,8 @@ public class GUImakeRule extends JPanel {
 		lblLogicalOperators.setBounds(57, 314, 191, 34);
 		add(lblLogicalOperators);
 
-		JComboBox comboBox_2 = new JComboBox();
-		comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"AND", "OR"}));
+		JComboBox<String> comboBox_2 = new JComboBox<String>();
+		comboBox_2.setModel(new DefaultComboBoxModel<String>(new String[] {"AND", "OR"}));
 		comboBox_2.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		comboBox_2.setBounds(258, 313, 68, 31);
 		add(comboBox_2);
@@ -277,6 +276,10 @@ public class GUImakeRule extends JPanel {
 	 */
 	private class Pop_up extends JFrame {
 
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 		private JPanel contentPane;
 		private JTextField textField;
 

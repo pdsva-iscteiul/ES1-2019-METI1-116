@@ -30,7 +30,12 @@ import java.awt.SystemColor;
  *
  */
 public class GUIexcelPage extends JPanel {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JTextField textField;
+	@SuppressWarnings("unused")
 	private GUIprojectPresentation frame;
 
 	/**
@@ -78,7 +83,6 @@ public class GUIexcelPage extends JPanel {
 				chooser.setFileFilter(filter);
 				int returnVal = chooser.showOpenDialog(null);
 				if (returnVal == JFileChooser.APPROVE_OPTION) {
-					System.out.println("You chose to open this file: " + chooser.getSelectedFile().getName());
 					textField.setText(chooser.getSelectedFile().getAbsolutePath());
 
 				}

@@ -17,16 +17,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-
-import java.util.HashMap;
-
-import org.apache.poi.ss.usermodel.Cell;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-
 import AuxPackage.Reader;
 import AuxPackage.Rule;
 
@@ -50,6 +40,7 @@ public class ReaderTest {
 	private Rule rule1;
 	private Rule rule2;
 	private Workbook wb;
+	@SuppressWarnings("unused")
 	private Sheet sh;
 	private FileInputStream excelFile;
 
@@ -59,7 +50,6 @@ public class ReaderTest {
 
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
-		System.out.println("ReaderTest JUnit");
 	} 
 	/**
 	 * Initiatilization of all the variables used on the rules.
