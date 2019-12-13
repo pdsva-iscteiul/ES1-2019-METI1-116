@@ -20,6 +20,12 @@ import javax.swing.JPanel;
 import java.awt.SystemColor;
 
 
+/**
+ * @author Sofia Figueiredo
+ * 
+ * Main frame that let us run the program.
+ * 
+ */
 public class GUIprojectPresentation extends JFrame{
 
 	private JFrame frame;
@@ -108,12 +114,28 @@ public class GUIprojectPresentation extends JFrame{
 		});
 
 	}
+	
+	/**
+	 * @return excelPath
+	 * 
+	 * Return the path to excel.
+	 */
 	public String getExcelPath() {
 		return excelPath;
 	}
+	
+	/**
+	 * @param s -> path to excel
+	 * 
+	 * Changes the path to excel.
+	 */
 	public void setExcelPath(String s) {
 		excelPath=s;
 	}
+	
+	/**
+	 * Changes the current panel to the excel panel.
+	 */
 	public void swapToexcel() {
 		JPanel j = new GUIexcelPage(this);
 		j.setBounds(0, 0, 586, 463);
@@ -123,6 +145,10 @@ public class GUIprojectPresentation extends JFrame{
 		frame.getContentPane().revalidate();
 	}
 		
+	
+	/**
+	 * Changes the current panel to the menu panel.
+	 */
 	public void swapToMenu() {
 		JPanel j = new GUImenu(this);
 		j.setBounds(0, 0, 586, 463);
@@ -133,6 +159,9 @@ public class GUIprojectPresentation extends JFrame{
 	
 	}
 	
+	/**
+	 * Changes the current panel to the make rule panel.
+	 */
 	public void swapTomakeRule() {
 		JPanel j = new GUImakeRule(this);
 		j.setBounds(0, 0, 586, 463);
@@ -141,6 +170,10 @@ public class GUIprojectPresentation extends JFrame{
 		frame.getContentPane().repaint();
 		frame.getContentPane().revalidate();
 }
+	
+	/**
+	 *Changes the current panel to the results panel. 
+	 */
 	public void swapToResults() {
 		JPanel j = new GUIresults(this);
 		j.setBounds(0, 0, 586, 463);
@@ -149,14 +182,32 @@ public class GUIprojectPresentation extends JFrame{
 		frame.getContentPane().repaint();
 		frame.getContentPane().revalidate();
 }
+	
+	
+	/**
+	 * @param rule -> Rule to be added
+	 * 
+	 * Add rules into the listOfRules.
+	 */
 	public void AddRules(Rule rule) {
 		listOfRules.add(rule);
 	}
 	
+	/**
+	 * @param rule -> Rule to be removed
+	 * 
+	 * Remove rules of the listOfRules.
+	 */
 	public void RemoveRules(Rule rule) {
 		listOfRules.remove(rule);
 	}
 	
+	
+	/**
+	 * @return listOfRules 
+	 * 
+	 * Return the listOfRules.
+	 */
 	public ArrayList<Rule> getListOfRules(){
 		return this.listOfRules;
 	}

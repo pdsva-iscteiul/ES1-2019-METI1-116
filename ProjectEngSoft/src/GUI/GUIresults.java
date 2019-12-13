@@ -30,6 +30,12 @@ import java.awt.event.ActionEvent;
 import java.awt.SystemColor;
 
 
+/**
+ * @author Sofia Figueiredo
+ * 
+ * Display on GUI the results of rules evaluation.
+ *
+ */
 public class GUIresults extends JPanel {
 	private GUIprojectPresentation frame;
 	private JTable table;
@@ -43,8 +49,11 @@ public class GUIresults extends JPanel {
 	private DefaultTableModel model;
 	private DefaultTableModel model1;
 	private JTable table_2;
+	
 	/**
-	 * Create the panel.
+	 * @param frame -> Main frame
+	 * 
+	 * Constructor of the GUIresults page.
 	 */
 	public GUIresults(GUIprojectPresentation frame) {
 		setBackground(new Color(240, 248, 255));
@@ -160,6 +169,12 @@ public class GUIresults extends JPanel {
 
 	}
 
+	/**
+	 * @param s -> string for a new column
+	 * @param a -> Array to be used to make the rows
+	 * 
+	 * Procedure that, according to the column, make rows in the tables. 
+	 */
 	public void doRows(String s, ArrayList<String> a) {
 		boolean b = model.findColumn(s) >= 0;
 

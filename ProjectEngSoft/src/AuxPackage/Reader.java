@@ -29,6 +29,12 @@ public class Reader {
 		sh = wb.getSheetAt(0);
 	}
 
+	/**
+	 * @param a
+	 * @return s
+	 * 
+	 * This function evaluates, according to the quality indicators, the tools existing in an excel file.
+	 */
 	public  ArrayList<String> evaluate(String a)  {
 		ArrayList<String> s = new ArrayList<String>();
 		DCI = 0;
@@ -58,20 +64,37 @@ public class Reader {
 
 
 
+	/**
+	 * @return DCI 
+	 * Returns the DCI value.
+	 * 
+	 */
 	public int getDCI() {
 		return DCI;
 	}
 
 
+	/**
+	 * @return ADCI
+	 * Returns the ADCI value.
+	 */
 	public int getADCI() {
 		return ADCI;
 	}
 
 
+	/**
+	 * @return DII
+	 * Returns the DII value.
+	 */
 	public int getDII() {
 		return DII;
 	}
 
+	/**
+	 * @return ADII
+	 * Returns the ADII value.
+	 */
 	public int getADII() {
 		return ADII;
 	}
@@ -126,6 +149,7 @@ public class Reader {
 		}
 		return result;
 	}
+	
 	public Sheet getSh() {
 		return sh;
 	}
