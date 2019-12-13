@@ -5,7 +5,6 @@ import javax.swing.JRadioButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
-import java.awt.EventQueue;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
@@ -21,6 +20,11 @@ import java.awt.Color;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ButtonGroup;
 
+/**
+ * This Gui is used for the user to make a custom rule
+ * @author Filipe
+ *
+ */
 public class GUImakeRule extends JPanel {
 	private JTextField textField_1;
 	private JTextField textField;
@@ -28,9 +32,12 @@ public class GUImakeRule extends JPanel {
 	private Tracker tracker=Tracker.Metrics;
 	private String selectedType = "is_long_method";
 	private final ButtonGroup buttonGroup = new ButtonGroup();
+	
 	/**
-	 * Create the panel.
+	 * 
+	 * @param frame recevies the frame where this Jpanel will be put in
 	 */
+	
 	public GUImakeRule(GUIprojectPresentation frame) {
 		setBackground(new Color(240, 248, 255));
 		this.frame= frame;
@@ -263,11 +270,19 @@ public class GUImakeRule extends JPanel {
 
 
 	}
+	/**
+	 * A private class only use to name the new rule
+	 * @author Filipe
+	 *
+	 */
 	private class Pop_up extends JFrame {
 
 		private JPanel contentPane;
 		private JTextField textField;
 
+		/**
+		 * After the constructor the pop_up will build it self
+		 */
 		public Pop_up() {
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			setBounds(100, 100, 456, 164);
@@ -295,7 +310,6 @@ public class GUImakeRule extends JPanel {
 				public void actionPerformed(ActionEvent e) {
 					dispose();
 					frame.swapToMenu();
-					System.out.println();
 					frame.AddRules(new Rule(textField.getText(),selectedType,GUImakeRule.this.textField.getText().split("  ")));
 
 				}
@@ -303,6 +317,11 @@ public class GUImakeRule extends JPanel {
 
 		}
 	}
+	/**
+	 * This enum is useful to keep track what was already added by the user to the rule
+	 * @author Filipe
+	 *
+	 */
 	private enum Tracker{
 		Metrics("Metrics"),
 		Logical("Logical operator"),
@@ -311,6 +330,10 @@ public class GUImakeRule extends JPanel {
 
 		private String meaning;
 
+		
+		/**
+		 * @param s is the meaning in String of the enum
+		 */
 		Tracker(String s){
 			this.meaning=s;
 		}
