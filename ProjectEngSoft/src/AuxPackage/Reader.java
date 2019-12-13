@@ -143,8 +143,4 @@ public class Reader {
 		return aux;
 	}
 	
-	
-	public Sheet getSh() {
-		return sh;
-	}
 }

@@ -68,7 +68,7 @@ class RuleTest {
 		subrule5 = "( CYCLO < 30 )";
 		subrule6 = " ( CYCLO > 2 )";
 		
-		subrule7 = " ( LAA = 0 )"; 
+		subrule7 = " ( LAA = 1 )"; 
 		subrule8 = "( ATFD < 10 )";
 		
 		String [] cond1 = {subrule6," AND ",subrule2}; // CYCLO>1 AND LOC<20
@@ -90,7 +90,7 @@ class RuleTest {
 		
 		row1 = reader.getSh().getRow(3); //e.g, row number 3
 		row2 = reader.getSh().getRow(25); // for testing cond1
-		row3 = reader.getSh().getRow(22); // for testing cond2		
+		row3 = reader.getSh().getRow(21); // for testing cond2		
 	}
 
 	@AfterEach
@@ -143,26 +143,10 @@ class RuleTest {
 		boolean expected7 = rule7.compare(row3);
 		assertTrue(expected7);
 			
-	//	boolean expected8 = rule2.compare(row3);
-		//assertTrue(expected8);
+		boolean expected8 = rule2.compare(row3);
+		assertTrue(expected8);
 		
 	}
 	
-/*
-	@Test
-	void testAndOr() {
-		
-	ArrayList<Boolean> booleanlist = new ArrayList<>();
-	ArrayList<String> operatorlist = new ArrayList<>();
-	booleanlist.add(true);	
-	booleanlist.add(true);
-	
-	operatorlist.add(" AND ");
-
-	boolean expected = rule1.getAndOr(booleanlist, operatorlist);
-	
-	assertTrue(expected);
-	}
-*/	
 	
 }

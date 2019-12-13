@@ -113,12 +113,12 @@ public class ReaderTest {
 		
 	}
 	@Test
-	public void evaluate1Test() {
-		ArrayList<String> s = reader.evaluate1(rule1);
-		ArrayList<String> m = reader.evaluate1(rule2);
+	public void evaluateUserRuleTest() {
+		ArrayList<String> s = reader.evaluateUserRule(rule1);
+		ArrayList<String> m = reader.evaluateUserRule(rule2);
 		assertEquals(s.get(0),"ADCI");
 		assertNotEquals(s.get(0),"hello");
-		assertEquals(m.get(6),"ADII");
+		assertEquals(m.get(6),"DCI");
 		assertNotEquals(m.get(6),"hello");
 	
 		

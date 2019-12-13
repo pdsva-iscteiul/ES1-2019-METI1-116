@@ -127,31 +127,5 @@ public class Rule {
 			return null;
 		}
 	}
-	//	public class MetricToCompare{
-	//		private int integer;
-	//		private Metric metric;
-	//		
-	//		public MetricToCompare(int i, Metric m) {
-	//			this.integer = i;
-	//			this.metric = m;
-	//		}
-	//
-	//		public int getInteger() {
-	//			return integer;
-	//		}
-	//
-	//		public void setInteger(int integer) {
-	//			this.integer = integer;
-	//		}
-	//
-	//		public Metric getMetric() {
-	//			return metric;
-	//		}
-	//
-	//		public void setMetric(Metric metric) {
-	//			this.metric = metric;
-	//		}
-	//		
-	//	}
-
+	
 }
