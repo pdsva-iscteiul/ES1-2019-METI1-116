@@ -86,7 +86,7 @@ class RuleTest {
 		//rule5 = new Rule(name3,TypeOfComparation2,subrule8); // feature_envy
 
 		// load the excel file
-		reader = new Reader(new File("/Users/pedrov510/Desktop/Uni/ES/Long-Method.xlsx"));
+		reader = new Reader(new File("C:/Users/joao/Downloads/Long-Method.xlsx"));
 		
 		row1 = reader.getSh().getRow(3); //e.g, row number 3
 		row2 = reader.getSh().getRow(25); // for testing cond1
@@ -143,7 +143,7 @@ class RuleTest {
 		boolean expected7 = rule7.compare(row3);
 		assertTrue(expected7);
 			
-		boolean expected8 = rule2.compare(row3);
+	//	boolean expected8 = rule2.compare(row3);
 		//assertTrue(expected8);
 		
 	}
