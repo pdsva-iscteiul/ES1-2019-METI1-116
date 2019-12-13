@@ -29,8 +29,6 @@ public class Reader {
 		sh = wb.getSheetAt(0);
 	}
 
-
-
 	public  ArrayList<String> evaluate(String a) {
 		ArrayList<String> s = new ArrayList<String>();
 		DCI = 0;
@@ -141,5 +139,10 @@ public class Reader {
 			}
 		}
 		return aux;
+	}
+	
+	
+	public Sheet getSh() {
+		return sh;
 	}
 }
